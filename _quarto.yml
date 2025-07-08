@@ -1,0 +1,35 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "A Project-based Approach to Introductory R and Python for Data Science"
+  author: "David Stokes | Mahmoud Harding"
+  date: ""
+  chapters:
+    - _setup.qmd
+    - index.qmd
+    - proj1R.qmd
+    - proj2R.qmd
+    - proj3R.qmd
+    - proj4P.qmd
+    - proj5P.qmd
+    - proj6P.qmd
+    - proj7R.qmd
+    - proj8.qmd
+    - references.qmd
+  
+bibliography: references.bib
+csl: frontiers-in-applied-mathematics-and-statistics.csl
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+    code-overflow: wrap
+
+jupyter: python3 
+
+editor: source
+

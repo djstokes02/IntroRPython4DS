@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>4&nbsp; Project Part 3.1: Diving into Data Exploration - R – A Project-based Approach to Introductory R and Python for Data Science</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./proj4P.html" rel="next">
+<link href="./proj2R.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./proj3R.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Project Part 3.1: Diving into Data Exploration - R</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">A Project-based Approach to Introductory R and Python for Data Science</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Configure matplotlib</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj1R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Project Part 1: Finding a dataset</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj2R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Project Part 2: Creating a data dictionary</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj3R.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Project Part 3.1: Diving into Data Exploration - R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj4P.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Python - the Basics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj5P.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Project Part 3.2: Diving into Data Exploration - Python</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj6P.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Project Part 4.1: Visualizations &amp; Trends in Python</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj7R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Project Part 4.2: Visualizations &amp; Trends in R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Project Part 5: Communicating results</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#data-moves" id="toc-data-moves" class="nav-link active" data-scroll-target="#data-moves"><span class="header-section-number">4.1</span> Data Moves</a></li>
+  <li><a href="#data-moves-in-base-r" id="toc-data-moves-in-base-r" class="nav-link" data-scroll-target="#data-moves-in-base-r"><span class="header-section-number">4.2</span> Data Moves in Base R</a>
+  <ul class="collapse">
+  <li><a href="#filtering" id="toc-filtering" class="nav-link" data-scroll-target="#filtering"><span class="header-section-number">4.2.1</span> Filtering</a></li>
+  <li><a href="#subsetting" id="toc-subsetting" class="nav-link" data-scroll-target="#subsetting"><span class="header-section-number">4.2.2</span> Subsetting</a></li>
+  <li><a href="#grouping-loop-example" id="toc-grouping-loop-example" class="nav-link" data-scroll-target="#grouping-loop-example"><span class="header-section-number">4.2.3</span> Grouping (Loop Example)</a></li>
+  <li><a href="#additional-data-moves" id="toc-additional-data-moves" class="nav-link" data-scroll-target="#additional-data-moves"><span class="header-section-number">4.2.4</span> Additional Data Moves</a></li>
+  </ul></li>
+  <li><a href="#tidyverse-data-moves---tidy-moves" id="toc-tidyverse-data-moves---tidy-moves" class="nav-link" data-scroll-target="#tidyverse-data-moves---tidy-moves"><span class="header-section-number">4.3</span> Tidyverse Data Moves - Tidy Moves</a>
+  <ul class="collapse">
+  <li><a href="#a-different-way-and-the-pipe-operator" id="toc-a-different-way-and-the-pipe-operator" class="nav-link" data-scroll-target="#a-different-way-and-the-pipe-operator"><span class="header-section-number">4.3.1</span> A different way (and the pipe operator)</a></li>
+  <li><a href="#filtering-2.0" id="toc-filtering-2.0" class="nav-link" data-scroll-target="#filtering-2.0"><span class="header-section-number">4.3.2</span> Filtering 2.0</a></li>
+  <li><a href="#subsetting-2.0" id="toc-subsetting-2.0" class="nav-link" data-scroll-target="#subsetting-2.0"><span class="header-section-number">4.3.3</span> Subsetting 2.0</a></li>
+  <li><a href="#grouping-2.0" id="toc-grouping-2.0" class="nav-link" data-scroll-target="#grouping-2.0"><span class="header-section-number">4.3.4</span> Grouping 2.0</a></li>
+  <li><a href="#a-few-more-dplyr-examples" id="toc-a-few-more-dplyr-examples" class="nav-link" data-scroll-target="#a-few-more-dplyr-examples"><span class="header-section-number">4.3.5</span> A few more dplyr examples</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Project Part 3.1: Diving into Data Exploration - R</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Now that we are familiar with our dataset “metadata” let’s consider a more thorough exploratory process informed by the background knowledge encoded into the data dictionary. To do this, we will access some data science programming tools and concepts that will provide us with the means to dive and delve into our data.</p>
+<section id="data-moves" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="data-moves"><span class="header-section-number">4.1</span> Data Moves</h2>
+<p>To begin exploring your data in more detail, you will likely need to modify your dataset in some way. This may involve removing variables or observations, creating groupings or categories, performing operations on certain values, and other transformations of the data. For example, if you want to understand or visualize a particular trend in your data, you may need to index your observations in a particular order. This might be a necessary step if your data has a temporal component and you want to visualize a trend or phenomenon with respect to time.</p>
+<p>Erickson et al. <span class="citation" data-cites="erickson2019dataMoves">(<a href="references.html#ref-erickson2019dataMoves" role="doc-biblioref">1</a>)</span>, refer to such data transformations as “data moves” and understanding what these are can facilitate your data science explorations and investigations regardless of your programming language or platform of choice. We will consider data moves as a fundamental part of our programming and as a guide to facilitating the many aspects of our data exploration and investigations process, from data cleaning to data visualization and beyond. Our version of data moves will be connected to the dataframe object structure that is part of both R and Python. These concepts are the SCUBA gear that will allow us to wade through the depths of our data with purpose and confidence.</p>
+</section>
+<section id="data-moves-in-base-r" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="data-moves-in-base-r"><span class="header-section-number">4.2</span> Data Moves in Base R</h2>
+<p>Typical dataset modifications involve data moves such as filtering, subsetting, grouping, and merging. In chapter 3, we looked at the Marine6 dataset. This 815x10 dimension dataset was created through a series of data moves from a larger dataset consisting of 48,237 rows and nine columns. Creating this dataset of interest involved data exploration and data moves such as filtering, subsetting, grouping, and creating a new variables.</p>
+<section id="filtering" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="filtering"><span class="header-section-number">4.2.1</span> Filtering</h3>
+<p>The <code>filtering</code> data move is what we will use to reduce or examine a dataset based on certain <code>row criteria</code>. Since we have information about the range of years in the dataset, from our data dictionary, we might wonder “How many observations were recorded from the beginning, in 1970?”.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read in the Marine6 dataset using base R</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># convert characters to factors upon reading in</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Marine6 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"Marine6.csv"</span>, <span class="at">stringsAsFactors =</span> <span class="cn">TRUE</span> )</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># find the minimum value for the variable "Year"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># aka, the earliest recordings</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(Marine6<span class="sc">$</span>Year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1970</code></pre>
+</div>
+</div>
+<p>In the code above, we read in the Marine6 data and used the <code>min()</code> function on the “Year” variable to get the earliest date. The output confirms that the earliest year recoded in the dataset was 1970. We’ve identified our row criteria on which we will filter the data to investigate our question of interest.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># filter the data set to observations of interest</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># get the number of observations</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(Marine6[Marine6<span class="sc">$</span>Year <span class="sc">==</span> <span class="dv">1970</span>,])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+</div>
+<p>In the code above we used the logical statement <code>Marine6$Year == 1970</code> in the row index position to filter the Marine6 dataset (e.g., get all rows in the dataset where the logical statement is true). This output served as the input for the <code>nrow()</code> function which counts the number of rows and returned the answer to our inquiry.</p>
+<p>Like the briefly mentioned process of creating the Marine6 dataset, in many instances, we might filter our data to create a new object, or dataset, of interest. We might store all observations according to a specific set of years.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Store observation from 1970 to 2000 in M6_2000</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>M6_2000 <span class="ot">&lt;-</span> Marine6[Marine6<span class="sc">$</span>Year <span class="sc">&lt;=</span> <span class="dv">2000</span>,]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(M6_2000<span class="sc">$</span>Year) <span class="co"># max should be 2000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   1970    1983    1991    1989    1996    2000 </code></pre>
+</div>
+</div>
+</section>
+<section id="subsetting" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="subsetting"><span class="header-section-number">4.2.2</span> Subsetting</h3>
+<p>We can use column criteria to reduce our data to only certain variables of interest. We can distinguish the <code>subsetting</code> data move from filtering based on the use of column vs.&nbsp;row criteria, although both operations result in what can be considered subsets of the data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summary only of the subset of variables of interest</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Marine6[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">8</span>,<span class="dv">10</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Year                      Region        Depth       
+ Min.   :1970   Northeast US Fall  :164   Min.   :  7.48  
+ 1st Qu.:1991   Northeast US Spring:132   1st Qu.:  8.43  
+ Median :2000   Maritimes Summer   : 99   Median : 52.98  
+ Mean   :1999   Southeast US Summer: 93   Mean   : 67.22  
+ 3rd Qu.:2010   Southeast US Spring: 92   3rd Qu.:119.63  
+ Max.   :2020   Southeast US Fall  : 87   Max.   :255.06  
+                (Other)            :148   NA's   :53      
+               Common.Name 
+ American lobster    :187  
+ Banded drum         :158  
+ Black sea bass      :180  
+ Guachanche barracuda:126  
+ Rainbow star        : 26  
+ Red hake            :138  
+                           </code></pre>
+</div>
+</div>
+<p>In the code above, we used a vector of indices to get a subset of the Marine6 variables. In larger datasets, particularly for gleaning insights from the <code>summary()</code> function, subsetting data in this way can render the output more informative and digestible.</p>
+</section>
+<section id="grouping-loop-example" class="level3" data-number="4.2.3">
+<h3 data-number="4.2.3" class="anchored" data-anchor-id="grouping-loop-example"><span class="header-section-number">4.2.3</span> Grouping (Loop Example)</h3>
+<p>The <code>grouping</code> data move may serve various purposes, but is often used to create categories for the purposes of comparisons. Often, the grouping data move is a specific case of creating a new variable or attribute, particularly when the grouping information is needed for subsequent analysis. For example, a new variable containing grouping information may be a parameter that is used to create a data visualization in a certain way.</p>
+<p>In the Marine6 dataset, we have species of fish and species of not-fish. We might be interested in comparing the changes in depths over time between these more general classifications. To set this comparison up, we can use grouping.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using a for loop to create a new group</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(Marine6))</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(Marine6<span class="sc">$</span>Common.Name[i] <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"American lobster"</span>,<span class="st">"Rainbow star"</span>))</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  { Marine6<span class="sc">$</span>Group[i] <span class="ot">=</span> <span class="st">"Other"</span> }</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="cf">if</span>(<span class="fu">is.na</span>(Marine6<span class="sc">$</span>Common.Name[i])) </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  { Marine6<span class="sc">$</span>Group[i] <span class="ot">=</span> <span class="cn">NA</span> } </span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> </span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  { Marine6<span class="sc">$</span>Group[i] <span class="ot">=</span> <span class="st">"Fish"</span> }</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>Marine6<span class="sc">$</span>Group <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(Marine6<span class="sc">$</span>Group)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Marine6<span class="sc">$</span>Group)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Fish Other 
+  602   213 </code></pre>
+</div>
+</div>
+<p>Let’s examine the code above, which contains a <code>for loop</code>. This programming sequence iterates through each observation in the Marine6 data and returns the values “Other”, “NA”, or “Fish” based on the specified condition-criteria. In the first condition we introduced the <code>%in%</code> operator which is a logical statement that returns <code>TRUE</code> if the value of “Common.Name” matches any of the characters in the object <code>c("American lobster","Rainbow star")</code>, or <code>FALSE</code> otherwise. The next condition uses <code>is.na()</code>, also a logical statement, which returns <code>TRUE</code> if the value of “Common.Name” is missing, and <code>FALSE</code> otherwise. Although there are no missing values in “Common.Name”, this may not always be the case for a given variable and we should account for this missing value condition in order to run our loop without error. Finally, the last remaining case includes all other common names not specified in the first condition. We do not need to explicitly write this out as it is included in the <code>else</code> statement. Note how our data dictionary can provide this factor level information to us. We may even revise our data dictionary to include information about the levels that correspond to fish and those that do not.</p>
+</section>
+<section id="additional-data-moves" class="level3" data-number="4.2.4">
+<h3 data-number="4.2.4" class="anchored" data-anchor-id="additional-data-moves"><span class="header-section-number">4.2.4</span> Additional Data Moves</h3>
+<p>In some cases, there may be information spread across multiple datasets that we want to combine into a single dataframe. If each of these dataset has a common “identifier” which links the information, we can use the <strong>merging</strong> data move to accomplish this task. For example, we might want to add instructor information to student data, based on a common course ID. We can merge data with the base R <code>merge()</code> function where the inputs would be each dataset and the common identifier on which the merge would be based.</p>
+<p>The <strong>creating hierarchy</strong> data move may not be different from a combination of grouping and creating a new variable. However, certain models are based on data hierarchy, and depending on the dataset there may be a need to create this structure for a related analysis. For example, we may have a dataset that contains information on states, counties, and schools. Across the states there may be counties (and schools) that have the same names. In order to distinguish one county from another, information about the state would be necessary. Thus, we would <code>nest</code> our counties within the states (and the schools within the counties), and this nesting would create a hierarchical data structure. As with comparing our fish and non-fish groups, we might be interested in visualizing the variation in county test scores across a sample of states, and the hierarchical information would be essential to such a task.</p>
+<p>In the examples above, we used based R and <code>bracket notation</code> (i.e., referencing indices through conditions in the row aand column spaces of our dataframe) to perform our data moves. Needless to say, there are more ways in R to perform our data moves. In fact, many data moves directly correspond to functions that exist through the <code>dplyr</code> package in the “tidyverse”. Even better, these functions can really simplify our coding process.</p>
+</section>
+</section>
+<section id="tidyverse-data-moves---tidy-moves" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="tidyverse-data-moves---tidy-moves"><span class="header-section-number">4.3</span> Tidyverse Data Moves - Tidy Moves</h2>
+<p>In the previous section, we demonstrated data moves one at a time. We could have easily added both row-filtering and column-subsetting information at the same time to create our new dataset of interest. These do not need to be independent steps, but combining these steps into one may lead to rather long code statements that could potentially be visually difficult to parse (and revise). Let’s see an example of this.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summary of a subset of variables </span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># for the observation prior to 2001 and in one region of interest</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Marine6[Marine6<span class="sc">$</span>Year <span class="sc">&lt;=</span> <span class="dv">2000</span> <span class="sc">&amp;</span> </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>                  Marine6<span class="sc">$</span>Region <span class="sc">==</span> <span class="st">"Northeast US Fall"</span>, <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">8</span>,<span class="dv">10</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Year                             Region       Depth       
+ Min.   :1974   Northeast US Fall         :93   Min.   : 21.50  
+ 1st Qu.:1980   Gulf of Alaska            : 0   1st Qu.: 34.83  
+ Median :1987   Gulf of Mexico            : 0   Median : 89.55  
+ Mean   :1987   Gulf of St. Lawrence South: 0   Mean   : 75.41  
+ 3rd Qu.:1995   Maritimes Summer          : 0   3rd Qu.:108.07  
+ Max.   :2000   Northeast US Spring       : 0   Max.   :134.87  
+                (Other)                   : 0   NA's   :1       
+               Common.Name
+ American lobster    :27  
+ Banded drum         :12  
+ Black sea bass      :27  
+ Guachanche barracuda: 0  
+ Rainbow star        : 0  
+ Red hake            :27  
+                          </code></pre>
+</div>
+</div>
+<p>In the code above, we added two conditions into the row space to filter by observations before 2001 and only in the “Northeast US Fall” region. We also added the column space index subsetting criteria, all in the same statement. This accomplishes the filtering and subsetting task of interest in short order, but we can certainly improve on the readability of this code. Also, it’s not ideal to have to revisit column information to find out which column names correspond to which indices. So, is there a better - or at least different - way?</p>
+<section id="a-different-way-and-the-pipe-operator" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="a-different-way-and-the-pipe-operator"><span class="header-section-number">4.3.1</span> A different way (and the pipe operator)</h3>
+<p>The <a href="https://www.tidyverse.org/">tidyverse</a> that we previewed in chapter 3 contains a very handy package called <a href="https://dplyr.tidyverse.org/">dplyr</a>. One of the cool things about the <code>dplyr</code> package is that many of the functions that exist within it can be put into direct correspondence with our data moves! Before we jump into the these functions, we need an essential tool called the <code>pipe</code> operator, which we can get from the <code>magrittr</code> package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># I can add two seperate statements on one line using ";"</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr); <span class="fu">library</span>(dplyr)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">#example using the pipe operator</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>Marine6 <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Year                      Region                     Species   
+ Min.   :1970   Northeast US Fall  :164   Centropristis striata:180  
+ 1st Qu.:1991   Northeast US Spring:132   Homarus americanus   :187  
+ Median :2000   Maritimes Summer   : 99   Larimus fasciatus    :158  
+ Mean   :1999   Southeast US Summer: 93   Orthasterias koehleri: 26  
+ 3rd Qu.:2010   Southeast US Spring: 92   Sphyraena guachancho :126  
+ Max.   :2020   Southeast US Fall  : 87   Urophycis chuss      :138  
+                (Other)            :148                              
+    Latitude     Latitude.Standard.Error   Longitude      
+ Min.   :26.51   Min.   :0.0000          Min.   :-159.98  
+ 1st Qu.:32.40   1st Qu.:0.1770          1st Qu.: -79.90  
+ Median :37.92   Median :0.2267          Median : -75.05  
+ Mean   :37.54   Mean   :0.2942          Mean   : -76.79  
+ 3rd Qu.:42.23   3rd Qu.:0.3342          3rd Qu.: -68.63  
+ Max.   :57.50   Max.   :4.4575          Max.   : -60.24  
+ NA's   :5       NA's   :34              NA's   :5        
+ Longitude.Standard.Error     Depth        Depth.Standard.Error
+ Min.   :0.0000           Min.   :  7.48   Min.   : 0.0000     
+ 1st Qu.:0.2362           1st Qu.:  8.43   1st Qu.: 0.1287     
+ Median :0.3298           Median : 52.98   Median : 4.4436     
+ Mean   :0.3859           Mean   : 67.22   Mean   : 5.7448     
+ 3rd Qu.:0.4475           3rd Qu.:119.63   3rd Qu.: 9.2985     
+ Max.   :1.7813           Max.   :255.06   Max.   :63.2701     
+ NA's   :34               NA's   :53       NA's   :73          
+               Common.Name    Group    
+ American lobster    :187   Fish :602  
+ Banded drum         :158   Other:213  
+ Black sea bass      :180              
+ Guachanche barracuda:126              
+ Rainbow star        : 26              
+ Red hake            :138              
+                                       </code></pre>
+</div>
+</div>
+<p>In the code above, the <code>%&gt;%</code> symbol is the operator of interest. The <code>pipe</code> operator applies the operations that follows (to the right) to the inputs that precede it (to the left). Just to understand a little more about this useful tool, let’s briefly step away from our dataset context to see another example of how the pipe operator works.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># What's the stadard deviation of [2,6,10]?</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">10</span>) <span class="sc">%&gt;%</span> <span class="fu">var</span>() <span class="sc">%&gt;%</span> <span class="fu">sqrt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+</div>
+<p>In the example above, we applied the variance function <code>var()</code> to [2,6,10], and took the square root of the variance output by applying the <code>sqrt()</code> function. This is the same as <code>sqrt(var(c(2,6,10)))</code>, but (not so) arguably easier to read, and definitely less prone to parentheses errors. Now that we’ve seen the <code>pipe</code> operator, let’s use it to smooth out those data moves!</p>
+</section>
+<section id="filtering-2.0" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="filtering-2.0"><span class="header-section-number">4.3.2</span> Filtering 2.0</h3>
+<p>Previously, using base R, we filtered the Marin6 dataset in order to count the number of observations that corresponded only to the year 1970. Let’s try this using the appropriate <code>dplyr</code> method, aptly known as the <code>filter()</code> function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>Marine6 <span class="sc">%&gt;%</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year <span class="sc">==</span> <span class="dv">1970</span>) <span class="sc">%&gt;%</span> <span class="co">#I can just name the variable</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nrow</span>() <span class="co">#counting the previously filtered data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+</div>
+<p>Wow! Above we were able to count the number of observations corresponding to the year 1970 using <code>filter()</code> together with the <code>pipe</code> operator. This new format flexibility also allows for in line commenting relative to each step.</p>
+</section>
+<section id="subsetting-2.0" class="level3" data-number="4.3.3">
+<h3 data-number="4.3.3" class="anchored" data-anchor-id="subsetting-2.0"><span class="header-section-number">4.3.3</span> Subsetting 2.0</h3>
+<p>Next, in base R, we used bracket notation and variable indices to subset our data (to produce a summary of interest). Let’s take a look at how we can go about accomplishing this subsetting data move (and summary) using the <code>select()</code> function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a summary of the selected variables</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>Marine6 <span class="sc">%&gt;%</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Year, Region, Depth, Common.Name) <span class="sc">%&gt;%</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Year                      Region        Depth       
+ Min.   :1970   Northeast US Fall  :164   Min.   :  7.48  
+ 1st Qu.:1991   Northeast US Spring:132   1st Qu.:  8.43  
+ Median :2000   Maritimes Summer   : 99   Median : 52.98  
+ Mean   :1999   Southeast US Summer: 93   Mean   : 67.22  
+ 3rd Qu.:2010   Southeast US Spring: 92   3rd Qu.:119.63  
+ Max.   :2020   Southeast US Fall  : 87   Max.   :255.06  
+                (Other)            :148   NA's   :53      
+               Common.Name 
+ American lobster    :187  
+ Banded drum         :158  
+ Black sea bass      :180  
+ Guachanche barracuda:126  
+ Rainbow star        : 26  
+ Red hake            :138  
+                           </code></pre>
+</div>
+</div>
+<p>Notice that we can specify the variable names as they are in the dataset. This is preferable to using indices which can lack sufficient information about what the subset should actually contain.</p>
+</section>
+<section id="grouping-2.0" class="level3" data-number="4.3.4">
+<h3 data-number="4.3.4" class="anchored" data-anchor-id="grouping-2.0"><span class="header-section-number">4.3.4</span> Grouping 2.0</h3>
+<p>The grouping data move may serve various purposes and in some cases it is not necessary to create new variables to group data for comparisons. For example, in the <code>dplyr</code> package, we can use <code>group_by()</code> to create a “grouped” data frame where subsequent functions are applied to each group.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>Marine6 <span class="sc">%&gt;%</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Common.Name) <span class="sc">%&gt;%</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 2
+# Groups:   Common.Name [6]
+  Common.Name              n
+  &lt;fct&gt;                &lt;int&gt;
+1 American lobster       187
+2 Banded drum            158
+3 Black sea bass         180
+4 Guachanche barracuda   126
+5 Rainbow star            26
+6 Red hake               138</code></pre>
+</div>
+</div>
+<p>In the code above, we were able to generate a comparison of counts for the variable on which the grouping was based. We input our grouped data frame (created by <code>group_by()</code>) into the <code>count()</code> function to generate a summary similar to what we got through applying the <code>summary()</code> function to <code>as.factor(Marine6$Common.Name)</code>.</p>
+</section>
+<section id="a-few-more-dplyr-examples" class="level3" data-number="4.3.5">
+<h3 data-number="4.3.5" class="anchored" data-anchor-id="a-few-more-dplyr-examples"><span class="header-section-number">4.3.5</span> A few more dplyr examples</h3>
+<p>Recall the rather involved base R loop that we created for the purpose of adding a grouping variable to our Marine6 dataset. Let’s consider how we could do this in the <code>dplyr</code> setting.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># function to categorize the different common names</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>fishCat <span class="ot">&lt;-</span> <span class="cf">function</span>(x)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>{ <span class="co">#x is the dataset variable of interest</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ifelse</span>(<span class="fu">is.na</span>(x), <span class="cn">NA</span>, </span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>         <span class="fu">ifelse</span>(x <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"American lobster"</span>,<span class="st">"Rainbow star"</span>),</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Other"</span>,<span class="st">"Fish"</span>))</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a new grouping variable  </span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>Marine6 <span class="sc">%&gt;%</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Group =</span> <span class="fu">fishCat</span>(Common.Name)) <span class="sc">%&gt;%</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+# Groups:   Group [2]
+  Group     n
+  &lt;chr&gt; &lt;int&gt;
+1 Fish    602
+2 Other   213</code></pre>
+</div>
+</div>
+<p>In the code above we created a <code>user defined function</code> (specific to our Marine6 data context) that takes in a dataset variable and returns either NA, “Fish,” or “Other.” The function uses nested <code>ifelse()</code> statements to account for the various criteria, rather than the more general if-else statement that we used for the loop in our base R grouping example. Although this function does not require anything beyond base R, we at least are able to see, in case you hadn’t heard, that there is more than one way to do a thing in R. In addition, <code>ifelse()</code> is a <code>vectorized</code> function and applies the specified conditions to each element simultaneously for a more efficient process!</p>
+<p>Below the user-defined <code>fishCat()</code> function we introduced the <code>mutate()</code> function. This function allows us to create a new variable from one that exists in the referenced dataset. Just as with our base R example, we named this variable “Group.” We used <code>fishCat()</code> to create the values of “Group” based on the components of “Common.Name”. Finally, we applied the <code>group_by()</code> function and counted the frequencies within each of our newly created “Group” categories.</p>
+<p>Now, lets look at one last function that will combine our filtering and grouping into one sequence of pipes and operations.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>Marine6 <span class="sc">%&gt;%</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year <span class="sc">&lt;=</span> <span class="dv">2000</span>, Region <span class="sc">==</span> <span class="st">"Northeast US Fall"</span>) <span class="sc">%&gt;%</span> <span class="co">#filtering</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Year, Region, Depth, Common.Name) <span class="sc">%&gt;%</span> <span class="co">#subsetting</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Year                             Region       Depth       
+ Min.   :1974   Northeast US Fall         :93   Min.   : 21.50  
+ 1st Qu.:1980   Gulf of Alaska            : 0   1st Qu.: 34.83  
+ Median :1987   Gulf of Mexico            : 0   Median : 89.55  
+ Mean   :1987   Gulf of St. Lawrence South: 0   Mean   : 75.41  
+ 3rd Qu.:1995   Maritimes Summer          : 0   3rd Qu.:108.07  
+ Max.   :2000   Northeast US Spring       : 0   Max.   :134.87  
+                (Other)                   : 0   NA's   :1       
+               Common.Name
+ American lobster    :27  
+ Banded drum         :12  
+ Black sea bass      :27  
+ Guachanche barracuda: 0  
+ Rainbow star        : 0  
+ Red hake            :27  
+                          </code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Consider
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In our 2.0 tidyverse comparisons vs.&nbsp;the base R versions, the readability feature of applying data moves with <code>dplyr</code> may have come into focus. As you continue to apply data moves, consider the advantages and disadvantages of the two different methods presented here. Which methods might work best for you and do you imagine using both base R and <code>dplyr</code> for your data moves in R?</p>
+</div>
+</div>
+<p>In this section we learned about important data moves that represent common programming applications for data dives and explorations within the data science workflow. We realized these data moves using base R and the <code>dplyr</code> package (with help from <code>magrittr</code>). Furthermore, we introduced loops and user-defined functions as examples of how various concepts come together and play a role in the data exploration process. As you move forward with using data moves for your data dive, think about the questions that come to mind via this exploration. Your data moves can even guide you towards a new data hypothesis!</p>
+
+
+<div id="refs" class="references csl-bib-body" role="list" style="display: none">
+<div id="ref-erickson2019dataMoves" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Erickson T, Wilkerson M, Finzer W, Reichsman F. Data moves. <em>Technology Innovations in Statistics Education</em> (2019) 12:</div>
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./proj2R.html" class="pagination-link" aria-label="Project Part 2: Creating a data dictionary">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Project Part 2: Creating a data dictionary</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./proj4P.html" class="pagination-link" aria-label="Python - the Basics">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Python - the Basics</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div>
