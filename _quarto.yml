@@ -25,6 +25,7 @@ format:
   html:
     theme: cosmo
     link-external-newwindow: true
+    css: custom.css
   pdf:
     documentclass: scrreprt
     code-overflow: wrap

@@ -1,0 +1,9 @@
+/* Change "Author" to "Authors" */
+.quarto-title-author-name::before {
+  content: "Authors: ";
+}
+
+/* Hide the default "Author" label */
+.quarto-title-meta .author .title {
+  display: none;
+}
