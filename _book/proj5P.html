@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>6&nbsp; Project Part 3.2: Diving into Data Exploration - Python – A Project-based Approach to Introductory R and Python for Data Science</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./proj6P.html" rel="next">
+<link href="./proj4P.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./proj5P.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Project Part 3.2: Diving into Data Exploration - Python</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">A Project-based Approach to Introductory R and Python for Data Science</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Configure matplotlib</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj1R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Project Part 1: Finding a dataset</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj2R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Project Part 2: Creating a data dictionary</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj3R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Project Part 3.1: Diving into Data Exploration - R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj4P.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Python - the Basics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj5P.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Project Part 3.2: Diving into Data Exploration - Python</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj6P.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Project Part 4.1: Visualizations &amp; Trends in Python</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj7R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Project Part 4.2: Visualizations &amp; Trends in R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Project Part 5: Communicating results</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#data-moves-in-python" id="toc-data-moves-in-python" class="nav-link active" data-scroll-target="#data-moves-in-python"><span class="header-section-number">6.1</span> Data Moves in Python</a>
+  <ul class="collapse">
+  <li><a href="#accessing-column-values" id="toc-accessing-column-values" class="nav-link" data-scroll-target="#accessing-column-values"><span class="header-section-number">6.1.1</span> Accessing Column Values</a></li>
+  <li><a href="#summarizing" id="toc-summarizing" class="nav-link" data-scroll-target="#summarizing"><span class="header-section-number">6.1.2</span> Summarizing</a></li>
+  <li><a href="#filtering" id="toc-filtering" class="nav-link" data-scroll-target="#filtering"><span class="header-section-number">6.1.3</span> Filtering</a></li>
+  <li><a href="#subsetting" id="toc-subsetting" class="nav-link" data-scroll-target="#subsetting"><span class="header-section-number">6.1.4</span> Subsetting</a></li>
+  <li><a href="#grouping" id="toc-grouping" class="nav-link" data-scroll-target="#grouping"><span class="header-section-number">6.1.5</span> Grouping</a></li>
+  <li><a href="#a-little-extra---merging-joining" id="toc-a-little-extra---merging-joining" class="nav-link" data-scroll-target="#a-little-extra---merging-joining"><span class="header-section-number">6.1.6</span> A little extra - Merging &amp; Joining</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Project Part 3.2: Diving into Data Exploration - Python</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="data-moves-in-python" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="data-moves-in-python"><span class="header-section-number">6.1</span> Data Moves in Python</h2>
+<p>The <a href="https://www.theramenrater.com/">Ramen Rater</a> has been around since 2002. The website’s founder, Hans Lienesch, reviews ramen noodles and records data on the brand, variety, style, country, and his own personal rating with scores given in increments of 0.25. As of now, the list contains reviews dating back to 2002. To expand upon the background description and address other components of the data dictionary criteria, we will read in the The Big List dataset and use some functions to access general metadata and information on the variables within.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Load in the data into a pandas DataFrame, using the pd.read_csv function</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>ramen <span class="op">=</span> pd.read_csv(<span class="st">"theramenrater_big_list.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>When data is read in through the pandas read_csv method the default structure is a DataFrame. Recall, that DataFrames store data in tabular format (e.g., like rows and columns in a spreadsheet).</p>
+<p>We could use pandas functions (or methods) to extract useful information about the data, such as column names and data types. This information is useful in general and is often an initial, default, step in a data science workflow upon reading in data. We can begin with using the .info() method which will return a summary of information about the structure of the DataFrame.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">## List summary information about the ramen dataframe</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>ramen.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 5015 entries, 0 to 5014
+Data columns (total 6 columns):
+ #   Column         Non-Null Count  Dtype  
+---  ------         --------------  -----  
+ 0   review_number  5015 non-null   int64  
+ 1   brand          5015 non-null   object 
+ 2   variety        5015 non-null   object 
+ 3   style          5015 non-null   object 
+ 4   country        5015 non-null   object 
+ 5   stars          5015 non-null   float64
+dtypes: float64(1), int64(1), object(4)
+memory usage: 235.2+ KB</code></pre>
+</div>
+</div>
+<p>The output above shows that there are 5015 entries (rows) and 6 columns. In the table, each row represents a column in the <code>ramen</code> dataset and <code>#</code> shows the index for the columns (from 0 and to 5), the column name, the Non-Null Count (i.e., the number of non-missing values), and the data type. The review_number column is int64 (numerical), the stars column is float64 (numerical), and the remaining columns are objects. When a column’s data type is listed as object, the values could be strings, numbers, or a mix of both. All of this information is useful and includes things we would want to include in something like a data dictionary.</p>
+<p>We could also retrieve individual pieces of this information using DataFrame attributes like <code>.shape</code> and <code>.columns</code>. <code>Attributes</code> are properties of pandas objects, such as metadata (e.g., column names, indices), that can be accessed using dot notation just like methods. Unlike methods, though, attributes are called without using parentheses <code>()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Check the dimensions of the dataset</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>ramen.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(5015, 6)</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">## List the variables in the dataset</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>ramen.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Index(['review_number', 'brand', 'variety', 'style', 'country', 'stars'], dtype='object')</code></pre>
+</div>
+</div>
+<section id="accessing-column-values" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="accessing-column-values"><span class="header-section-number">6.1.1</span> Accessing Column Values</h3>
+<p>To retrieve all values from a column in Pandas we can use bracket notation where the column name is placed inside of square brackets and enclosed by single or double quotes. For example, to access the values in the style column we can use ramen[‘style’]. The returned object is a Series.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ramen[<span class="st">'style'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0       Pack
+1       Bowl
+2       Bowl
+3       Bowl
+4        Cup
+        ... 
+5010    Pack
+5011    Pack
+5012    Pack
+5013    Pack
+5014     Cup
+Name: style, Length: 5015, dtype: object</code></pre>
+</div>
+</div>
+<p>A benefit of returning a Series is that it supports vectorized operations. Pandas also provides built-in methods for Series that perform a wide range of tasks for both categorical and numerical data. In addition, Series have attributes that store information such as the data type and size.</p>
+</section>
+<section id="summarizing" class="level3" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="summarizing"><span class="header-section-number">6.1.2</span> Summarizing</h3>
+<p>The summarizing data move can be used to condense the contents of a variable into frequency counts or proportions for categorical variables, and other descriptive statistics of interest for numerical variables. As an example, we can use the <code>.value_counts()</code> method to tally the different styles of noodles.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Create a frequency table of the labels in the 'styles' column</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>ramen[<span class="st">'style'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>style
+Pack          2637
+Bowl          1022
+Cup           1002
+Tray           228
+Box            120
+Restaurant       3
+Bar              1
+Bottle           1
+Can              1
+Name: count, dtype: int64</code></pre>
+</div>
+</div>
+<p>It appears that most of the reviewed noodles are sold in packs, bowls, or cups. Slightly more than half were in packs, while bowls and cups make up another 40%.</p>
+<p>We can use the <code>.describe()</code> method to get a comprehensive summary of a numerical variable. The <code>describe()</code> method returns a summary that includes the number of non-missing values, as well as statistical measures that include the mean, standard deviation, minimum, 25th percentile (Q1), 50th percentile (median), 75th percentile (Q3), and maximum.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Generate summary statistics for the 'stars' column</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>ramen[<span class="st">'stars'</span>].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>count    5015.000000
+mean        3.735278
+std         1.090282
+min         0.000000
+25%         3.250000
+50%         3.750000
+75%         4.500000
+max         5.000000
+Name: stars, dtype: float64</code></pre>
+</div>
+</div>
+<p>The output above allows us to get an idea of the distribution of the data. It appears the ratings may be slightly skewed to the right when observing the differences between Q2 and the median vs.&nbsp;the median and Q3. Looking ahead, a related visualization could provide an informative visual depiction of the data distribution.</p>
+</section>
+<section id="filtering" class="level3" data-number="6.1.3">
+<h3 data-number="6.1.3" class="anchored" data-anchor-id="filtering"><span class="header-section-number">6.1.3</span> Filtering</h3>
+<p>Recall that the filtering data move is what we use to reduce or examine a dataset based on certain row criteria. In our ramen dataset we have the country of origin for each noodle and it may be of interest to analyze the information related to a specific country. For example, suppose we wanted to filter for all the noodles that are manufactured in Japan. How can we do this?</p>
+<section id="boolean-masks" class="level4" data-number="6.1.3.1">
+<h4 data-number="6.1.3.1" class="anchored" data-anchor-id="boolean-masks"><span class="header-section-number">6.1.3.1</span> Boolean Masks</h4>
+<p>A Boolean mask is typically a Series containing <code>True</code> and <code>False</code> values. It is created by applying comparison operators (<code>==</code>, <code>&gt;</code>, <code>&lt;</code>, etc.) or logical conditions (<code>&amp;</code>, <code>|</code>, etc.). To create a Boolean mask for the rows where the country is Japan, we can use the comparison statement <code>ramen[‘country’] == “Japan”</code>. This returns a Series that can be used to filter out, or hide, the rows we do not want (e.g., countries other than Japan).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Create a Boolean mask where 'country' == "Japan"</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>ramen[<span class="st">'country'</span>] <span class="op">==</span> <span class="st">"Japan"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0       False
+1       False
+2       False
+3       False
+4       False
+        ...  
+5010    False
+5011    False
+5012    False
+5013    False
+5014    False
+Name: country, Length: 5015, dtype: bool</code></pre>
+</div>
+</div>
+<p>So, now that we have boolean masks at our disposal, we can use one to filter the data of interest. To do this, we can assign the filter criteria to a variable (perhaps named mask) and use it to filter the dataframe.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Create the Boolean mask where 'country' == "Japan"</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>mask <span class="op">=</span> ramen[<span class="st">'country'</span>] <span class="op">==</span> <span class="st">"Japan"</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co">## Filter the dataframe </span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co">## The .head() method limits the output to the first 5 rows</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>ramen[mask].head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      review_number     brand                    variety style country  stars
+1105           3464  Takamori              Agodashi Udon  Pack   Japan    5.0
+1106           4613    Ippudo       Akamaru Modern Ramen   Box   Japan    5.0
+1107           3382    Itsuki              Akikara Ramen  Pack   Japan    5.0
+1108           4308   Marutai  Asahikawa Soy Sauce Ramen  Pack   Japan    5.0
+1109           2974    Itomen               Bansyu Ramen  Pack   Japan    5.0</code></pre>
+</div>
+</div>
+<p>Note: The use of the <code>.head()</code> method returns only the first five rows (from the filtered dataframe). What method could we use to see that the filtered data contains 1039 entries?</p>
+<p>Next, just in case the opportunity to travel to Japan arises and so as to lean on data for the best ramen experience, let’s find out about the ramen that’s rated the best!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Find the average 'stars' rating</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">## The .mean() method calculates the mean of a numerical Series </span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>mean_stars <span class="op">=</span> ramen[<span class="st">'stars'</span>].mean()</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co">## Create the Boolean mask where 'country' == "Japan" and 'stars' greater</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co">## than or equal to the average stars rating</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>mask <span class="op">=</span> (ramen[<span class="st">'country'</span>] <span class="op">==</span> <span class="st">"Japan"</span>) <span class="op">&amp;</span> (ramen[<span class="st">'stars'</span>] <span class="op">&gt;=</span> mean_stars)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co">## Filter the dataframe and display the number of rows that match the condition</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>ramen[mask].shape[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>660</code></pre>
+</div>
+</div>
+<p>It looks like we have 660 options to choose from, so maybe we should narrow the search. But first, let’s see what’s going on in the code above.</p>
+<ul>
+<li>We took the mean of the ratings and stored it in <code>mean_stars</code>.</li>
+<li>Then, added more criteria to our <code>mask</code> variable to filter rows where the country is Japan and (<code>&amp;</code>) the ratings are greater than or equal to (<code>&gt;=</code>) the overall average.</li>
+<li>Lastly, we applied the mask criteria to our ramen data and called the <code>shape</code> attribute (which gives the dimensions).
+<ul>
+<li>NOTE: Since Python indices begin at zero, the <code>[0]</code> index of shape yields the number of rows.</li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+So, what about ramen?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Although ramen was originally invented in China, it was Japan that refined and popularized it, and as a result, modern ramen is distinctly Japanese. So much so that it is featured in the Shin-Yokohama Ramen Museum, which documents its rich history and tasty transformations over time!</p>
+<p>Note, that contextual information can facilitate your data exploration workflow and efficacy.</p>
+</div>
+</div>
+</section>
+<section id="query" class="level4" data-number="6.1.3.2">
+<h4 data-number="6.1.3.2" class="anchored" data-anchor-id="query"><span class="header-section-number">6.1.3.2</span> Query</h4>
+<p>In programming, a query is a request to access or retrieve information from a database or dataset based on conditions or criteria. Queries may also include instructions to filter, sort, or aggregate the data.</p>
+<p>In Pandas, the <code>.query()</code> method is specifically used to filter rows in a DataFrame based on a string input that consists of a boolean expression. For example, we can assign a string that contain a boolean expression (i.e., filtering criteria) to a variable and pass it as the parameter to .query().</p>
+<p>Let’s use this method to show a different way to filter the ramen DataFrame for rows where the country is equal to Japan.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Define a query string to filter the DataFrame for rows where the 'country' is "Japan" </span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>q <span class="op">=</span> <span class="st">"country == 'Japan'"</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co">## Use the .query() method to filter the DataFrame and access the first 5 entries (with the .head() method)</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>ramen.query(q).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      review_number     brand                    variety style country  stars
+1105           3464  Takamori              Agodashi Udon  Pack   Japan    5.0
+1106           4613    Ippudo       Akamaru Modern Ramen   Box   Japan    5.0
+1107           3382    Itsuki              Akikara Ramen  Pack   Japan    5.0
+1108           4308   Marutai  Asahikawa Soy Sauce Ramen  Pack   Japan    5.0
+1109           2974    Itomen               Bansyu Ramen  Pack   Japan    5.0</code></pre>
+</div>
+</div>
+<p>Notice that the results are identical to those obtained using a Boolean mask. While the advantages of using <code>.query()</code> may not be clear for a single condition, its benefits become more apparent with more complex filtering. For example, suppose we want to find extreme cases where the noodle ratings are 0.0 or 5.0, for Myojo brand, Tray-style noodles, manufactured in Japan.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Define a query string to filter the DataFrame for </span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co">## rows where the 'country' is "Japan",  </span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">## the style of the noodles is "Tray",</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co">## the brand is "Myojo", and</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co">## the stars rating is either 0.0 or 5.0 </span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>q <span class="op">=</span> <span class="st">'country == "Japan" and style == "Tray" and brand == "Myojo" and (stars == 0.0 or stars == 5.0)'</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="co">## Use the .query() method to filter the DataFrame with criteria q </span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>ramen.query(q)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      review_number  brand  ... country stars
+1112           3940  Myojo  ...   Japan   5.0
+1151           2951  Myojo  ...   Japan   5.0
+1170           4686  Myojo  ...   Japan   5.0
+1171           1103  Myojo  ...   Japan   5.0
+1172           2801  Myojo  ...   Japan   5.0
+1173           5014  Myojo  ...   Japan   5.0
+1174           3470  Myojo  ...   Japan   5.0
+1175           3231  Myojo  ...   Japan   5.0
+1270           2906  Myojo  ...   Japan   5.0
+2142           3505  Myojo  ...   Japan   0.0
+
+[10 rows x 6 columns]</code></pre>
+</div>
+</div>
+<p>The output shows partial information for the first ten rows of the filtered dataset of interest. In terms of the code, in this instance, the query string improves readability and reduces the required syntax in comparison to specifying the same criteria with a Boolean masks. When using a Boolean mask, you need to repeatedly reference the DataFrame and use bracket notation. In contrast, <code>.query()</code> lets you reference column names directly as variables in a string expression, which is often more efficient.</p>
+</section>
+</section>
+<section id="subsetting" class="level3" data-number="6.1.4">
+<h3 data-number="6.1.4" class="anchored" data-anchor-id="subsetting"><span class="header-section-number">6.1.4</span> Subsetting</h3>
+<p>Recall that the subsetting data move involves reducing the data based on column criteria. We can subset a Pandas DataFrame by specifying columns to keep using bracket notation, or by dropping columns that are not needed using the <code>.drop()</code> method. For bracket notation, we can input a list object consisting of column names inside brackets as shown below. Subsetting the data frame in this way results in a new DataFrame with the columns of interest.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">## List of columns to select</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>columns <span class="op">=</span> [<span class="st">'brand'</span>, <span class="st">'style'</span>, <span class="st">'stars'</span>]</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co">## Subset the ramen dataframe</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co">## ramen[['brand', 'style', 'stars']].head() results in the same</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>ramen[columns].head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    brand style  stars
+0   Maggi  Pack   5.00
+1  Suimin  Bowl   5.00
+2  Suimin  Bowl   5.00
+3  Suimin  Bowl   5.00
+4  Suimin   Cup   4.25</code></pre>
+</div>
+</div>
+<p>Now, let’s subset by dropping unneeded columns, using <code>.drop()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Drop the review_number column from the ramen dataframe</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>ramen <span class="op">=</span> ramen.drop(columns <span class="op">=</span> [<span class="st">'review_number'</span>])</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co">## Verify the column was removed</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>ramen.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Index(['brand', 'variety', 'style', 'country', 'stars'], dtype='object')</code></pre>
+</div>
+</div>
+</section>
+<section id="grouping" class="level3" data-number="6.1.5">
+<h3 data-number="6.1.5" class="anchored" data-anchor-id="grouping"><span class="header-section-number">6.1.5</span> Grouping</h3>
+<p>Recall that the grouping data move results in certain categorizations that can allow for realted comparisons via statistics, visualizations, models and more. In the Pandas library, the <code>.groupby()</code> methods groups rows based on values in one or more variables. For example, we may be interested in groupings based on levels within a specified categorical variable (e.g., ramen varieties). Once the grouping has been implemented we can apply aggregation methods, such as summing the totals, for variety.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co">## Create a groupby object</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>style_grps <span class="op">=</span> ramen.groupby(<span class="st">'style'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Above, we created a variable <code>style_grps</code>. This is a grouped object that contains DataFrames organized into subgroups based on the levels within the <code>style</code> column. Each subgroup contains a separate DataFrame consisting of row information corresponding to one of the unique levels (e.g., “Cup”, “Can”, etc.) in <code>style</code>.</p>
+<p>In the code below, the command <code>style_grps.groups.keys()</code> displays all the subgroup names (i.e., the grouping criteria or the levels of <code>style</code>) in the <code>style_grps</code> object. Note, that the <code>.groups</code> attribute of a grouped object is a <code>dictionary</code> on which we can run the <code>.keys()</code> method.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Displays all the subgroup names in grps </span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>style_grps.groups.keys()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>dict_keys(['Bar', 'Bottle', 'Bowl', 'Box', 'Can', 'Cup', 'Pack', 'Restaurant', 'Tray'])</code></pre>
+</div>
+</div>
+<p>Various data moves are related and can be complimentary. Although the grouping data move does not remove row information (but rather partitions the rows) and filtering does remove certain rows, we could choose to use either of these data moves to accomplish certain desired tasks. For example, if we were interested in comparing the average style rating across each style, we could use our filtering data move for each of the 9 different styles and compute the means of the stars ratings for each filtered dataset. Or, we could leverage grouping to compute the means in a more efficient way using our <code>style_grps</code> object. One difference in using grouping vs.&nbsp;filtering besides reduction in code is that computations applied to the grouped object are vectorized (and also more efficient in that way). The mean stars per group calculation is demonstrated below.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Calculate the mean stars rating for each style in the style_grps grouped object </span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co">## The .sort_values method arranges the output in ascending order</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>style_grps[<span class="st">'stars'</span>].mean().sort_values()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>style
+Cup           3.493693
+Can           3.500000
+Restaurant    3.583333
+Tray          3.595965
+Bowl          3.664540
+Pack          3.851422
+Bottle        4.000000
+Box           4.060417
+Bar           5.000000
+Name: stars, dtype: float64</code></pre>
+</div>
+</div>
+<p>Applying the <code>mean()</code> function to our grouped object results in a Series. We can then apply the .sort_values() method to this Series so that the group means appear in ascending (or descending) order.</p>
+<p>From the output we can see that the three highest mean ratings are for Bar, Box and Bottle. To complement the mean rating analysis, we should also examine the number of occurrences of each style, and we can do this by applying the appropriate method to our same <code>style_grps</code> object.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Return the counts of non-missing values in the stars column </span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co">## for each style in the style_grps object   </span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co">## The .sort_values() method arranges the output in ascending order   </span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>style_grps[<span class="st">'stars'</span>].size().sort_values() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>style
+Bar              1
+Bottle           1
+Can              1
+Restaurant       3
+Box            120
+Tray           228
+Cup           1002
+Bowl          1022
+Pack          2637
+Name: stars, dtype: int64</code></pre>
+</div>
+</div>
+<p>From the output we can see that two of our top three mean ratings are only represented by 1 review. So, we can regard the other averages (besides restaurant) represented by many more ratings as more reliable with respect to the style categorization. The frequencies may reflect the preferences of the rater, or may be reflective of a concept like “availability”. At least, we have an idea about a line of inquiry that may be worth investigating and we might want to put more or less faith in some mean ratings than others. ### Calculating (a new attribute)</p>
+<p>The calculating a new attribute data move allows us to create new variables from existing ones. We might calculate a new attribute to reveal underlying patterns in the data, to facilitate comparisons, or to preparing data for analysis, among other useful transformations. We can calculate various types of new attributes including numerical or categorical variables. For example, two numerical variables might be combined in a formula to calculate a new quantity, or used to sort observations into groups like small, medium, large. These calculated values become part of the dataset and can be used to support further exploration.</p>
+<section id="a-calculating-data-move-example" class="level4" data-number="6.1.5.1">
+<h4 data-number="6.1.5.1" class="anchored" data-anchor-id="a-calculating-data-move-example"><span class="header-section-number">6.1.5.1</span> A calculating data move example</h4>
+<p>The <a href="https://aflcio.org/paywatch">American Federation of Labor and Congress of Industrial Organizations (AFL-CIO) website</a> provides data on CEO compensation packages in the United States. The information on the compensation packages includes base salary, bonuses, stock awards, and other earnings, all captured in a dataset compiled from AFL-CIO data.</p>
+<p>Below are the attributes and descriptions for this dataset:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the data frame</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>compensation_table <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Name =</span> <span class="fu">c</span>( <span class="st">"ticker"</span>, <span class="st">"salary"</span>, <span class="st">"bonus"</span>,</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>            <span class="st">"stock_awards"</span>, <span class="st">"option_awards"</span>,<span class="st">"non_equity_comp"</span>,</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>            <span class="st">"pension_change"</span>,<span class="st">"other_comp"</span></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">Description =</span> <span class="fu">c</span>( <span class="st">"Stock ticker symbol for the company."</span>, </span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Base annual salary."</span>, <span class="st">"Additional cash bonus."</span>,</span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Value of stock granted."</span>, <span class="st">"Value of stock options granted."</span>,</span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Performance-based cash compensation not tied to equity."</span>, </span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Increase in pension value and deferred compensation earnings."</span>,</span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Miscellaneous compensation (e.g., perks, benefits)."</span></span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(compensation_table, </span>
+<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">"CEO Compensation Packages - Variable Descriptions (AFL-CIO)"</span>,</span>
+<span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a>      <span class="at">booktabs =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a>      <span class="at">longtable =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb35-23"><a href="#cb35-23" aria-hidden="true" tabindex="-1"></a>      <span class="at">align =</span> <span class="st">"l"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb35-24"><a href="#cb35-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">latex_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hold_position"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<caption>CEO Compensation Packages - Variable Descriptions (AFL-CIO)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Name</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ticker</td>
+<td style="text-align: left;">Stock ticker symbol for the company.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">salary</td>
+<td style="text-align: left;">Base annual salary.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">bonus</td>
+<td style="text-align: left;">Additional cash bonus.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">stock_awards</td>
+<td style="text-align: left;">Value of stock granted.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">option_awards</td>
+<td style="text-align: left;">Value of stock options granted.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">non_equity_comp</td>
+<td style="text-align: left;">Performance-based cash compensation not tied to equity.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">pension_change</td>
+<td style="text-align: left;">Increase in pension value and deferred compensation earnings.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">other_comp</td>
+<td style="text-align: left;">Miscellaneous compensation (e.g., perks, benefits).</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>Although the dataset does not contain a column representing total compensation, we can calculate this attribute from the existing data. We could also create additional attributes that represent various measures like the percentage of total compensation coming from stock or bonus pay.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the CEO compensation data</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>ceo_pay <span class="op">=</span> pd.read_csv(<span class="st">"ceo_compensation_summary.csv"</span>)</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate total compensation and store the result in the dataframe in a new column called total   </span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>ceo_pay[<span class="st">'total'</span>] <span class="op">=</span> (</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>    ceo_pay[<span class="st">'salary'</span>] <span class="op">+</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>    ceo_pay[<span class="st">'bonus'</span>] <span class="op">+</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>    ceo_pay[<span class="st">'stock_awards'</span>] <span class="op">+</span></span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>    ceo_pay[<span class="st">'option_awards'</span>] <span class="op">+</span></span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>    ceo_pay[<span class="st">'non_equity_comp'</span>] <span class="op">+</span></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>    ceo_pay[<span class="st">'pension_change'</span>]</span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now that we’ve computed this new column, additional analysis and exploration can be performed to better understand CEOs payment trends. In addition, we could use the summarizing data move to calculate statistics such as the mean, median, and standard deviation of the new <code>total</code> attribute.</p>
+</section>
+</section>
+<section id="a-little-extra---merging-joining" class="level3" data-number="6.1.6">
+<h3 data-number="6.1.6" class="anchored" data-anchor-id="a-little-extra---merging-joining"><span class="header-section-number">6.1.6</span> A little extra - Merging &amp; Joining</h3>
+<p>Merging and joining involve combining information from various datasets based on some identifying criteria. These terms are often used interchangeably.</p>
+<p>Consider the <code>ceo_pay</code> dataset, which includes details about the CEO compensation structure but lacks information about the companies and the particular CEOs. If we had the additional company and CEO information in another dataset and a common identifier between these disparate sources, we could merge the data into a single source containing all of the information.</p>
+<p>As it turns out, the <code>company</code> dataset, read in below, has information on company and ceo names. In addition, both the <code>company</code> and <code>ceo_pay</code> datasets contain a common identifier, <code>ticker</code>. So, we can use this identifier to merge the two data sources into one.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the company information data </span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>company <span class="op">=</span> pd.read_csv(<span class="st">"company_info.csv"</span>)</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Join the CEO pay dataset with the company dataset </span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>ceos_and_pay <span class="op">=</span> pd.merge(ceo_pay, company, on <span class="op">=</span> <span class="st">'ticker'</span>, how <span class="op">=</span> <span class="st">'inner'</span>)</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the new combined data column names</span></span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>ceos_and_pay.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Index(['ticker', 'salary', 'bonus', 'stock_awards', 'option_awards',
+       'non_equity_comp', 'pension_change', 'other_comp', 'total', 'city',
+       'state', 'display_name', 'fiscal_year', 'ceo_name'],
+      dtype='object')</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># preview the first 5 rows</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>ceos_and_pay.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  ticker   salary  ...  fiscal_year                      ceo_name
+0    TPG   509615  ...       2023.0           Mr. Jon  Winkelried
+1     CG   838462  ...       2023.0  Mr. Harvey Mitchell Schwartz
+2   AVGO  1200000  ...       2024.0               Mr. Hock E. Tan
+3   PANW   750000  ...       2024.0      Mr. Nikesh  Arora C.F.A.
+4   COTY  3549000  ...       2024.0               Ms. Sue Y. Nabi
+
+[5 rows x 14 columns]</code></pre>
+</div>
+</div>
+<p>Above we used the <code>pd.merge()</code> function (in the Pandas library) to combine the two dataframes based on the <code>ticker</code> variable/identifier in both datasets. We specified the identifier <code>ticker</code> as the <code>on</code> parameter value, and we specified <code>inner</code> as the <code>how</code> parameter value. The <code>inner</code> specification defines an inner-join which means only the rows where both datasets have a matching <code>ticker</code> value are merged and kept in the resulting dataset. In general <code>pd.merge()</code> is used to combine DataFrames based on one or more common keys (i.e., columns).</p>
+<p>Now that we have additional information in our <code>ceos_and_pay</code> dataset we have the option to explore entirely new data investigations, such as CEO salaries by industry, or salaries by other company characteristics. And of course, to do this, we can leverage data moves!</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./proj4P.html" class="pagination-link" aria-label="Python - the Basics">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Python - the Basics</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./proj6P.html" class="pagination-link" aria-label="Project Part 4.1: Visualizations &amp; Trends in Python">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Project Part 4.1: Visualizations &amp; Trends in Python</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

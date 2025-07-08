@@ -1,0 +1,223 @@
+# Project Part 2: Creating a data dictionary
+
+::: callout-note
+## Data Perspectives
+
+Data is information that reflects a particular process or observation. This information may contain imprecisions due to errors from measurement limitations, collection mishaps, and other reasons. Variability is an inherent characteristic of data and is seen in natural fluctuations across the different units on which data is collected, or through differences from sample to sample. Both error and variability in data are important to characterize throughout a data investigation and may impact decisions such as the need to collect more data and the strength attached to a particular communication, claim, or trend. In recognition of the presence or variability and error in data, even disregarding the data generation process, we should recognize *data as information, not truth*. When we add in the particular data generation process, we must recognize the potential for some biases and decisions that include certain aspects and omit others. We should recognize data has *degrees of inclusion and exclusion*.  
+:::
+
+
+## Basics in R
+
+### Comments
+
+Suppose you need to work on code for a project as a member of a team. Or, perhaps you are working on code for multiple projects and need to switch between these projects at different points of the process. 
+
+ - What do you imagine are some of the challenges you might you face when working over an extended period of time?
+
+Or, what if some time has passed since you last worked on a data science project involving coding and you need to get back to it. Upon resuming your work, you might ask: "Where did I leave off with my code, and what was the purpose of this line at this point?". In sharing your code, maybe one of your collaborators is wondering why you implemented a particular data step, function, or method at a given line.
+
+ - Would you want to start at the beginning of a file and retrace the logic up to the stopping point in order to understand what should be next? 
+
+This is possible and can be a beneficial review of your process, but as your project and code develop over time, this approach would become more and more time consuming. Even with a line by line review it's possible that you wouldn't recall all of the reasons for your coding choices and the corresponding purposes.
+
+A better method to facilitate effective work on coding projects over time or with collaborators, is to use clear and informative `code comments`. Comments are an essential part of the coding process, especially for reproducibility. In addition to tracking clear and informative information about your coding process, comments can be incorporated directly into the lines of code to benefit your understanding of your data science coding process, as well as that of others who will see or work with your code. 
+
+As you saw in the previous chapter, in R, code comments begin with the `#` character.
+
+```{r, this is a comment}
+
+# The text following the hashtag on this line is part of a comment
+# Here is another comment
+
+```
+
+In the midst of code, comments can be added on a different line from the code you'd like to run, or on the same line of the code you'd like to run as long as the hashtag follows the executable code. Recall, everything following the hashtag is treated like a comment.
+
+```{r, comment example 2}
+
+# I'm creating a vector of important numbers called Important_Numbers.
+
+Important_Numbers <- c("177","243","388") # characters
+# These are product identifiers 
+
+```
+
+**A scenario (comments)**
+
+Imagine your collaborator gave you code to modify in order to run some basic calculations and you were tasked with summarizing the characteristics of the quantitative values - including statistical measures such as means. Since you only read this book up to chapter 1, you decided to just input the variables into the mean() function without checking any metadata, such as variable types. You proceed to run the code shown below on the `Important_Numbers` variable (that is part of a larger dataset).
+
+```{r}
+mean(Important_Numbers)
+```
+
+To your surprise, the code throws an error!
+
+Luckily, your collaborator made a note about this variable through a comment. Upon looking through the code, and without having to recognize the quoted numbers (that were embedded in a much larger code sequence), you are able to easily see that the variable `Important_Numbers` was composed of character values, intentionally, to reflect their designation as product identifiers. Since you know you (and R) cannot compute the mean of a character vector you were able to identify this as the source of the error! Furthermore, from the helpful comment, you understand the reason why these numbers are being treated as character values. Upon reflection, you realize that your thoughtful collaborator helped you facilitate the debugging process and also provided you with additional information about the variable through their informative code commenting practices. You remove `Important_Numbers` from the calculations, check the metadata of the other variables, and proceed with the calculations on the appropriate information, error free.
+
+We can also imagine a scenario where some lines of code may be in an unfamiliar syntax (R has so many ways to perform the same task), and your best way of gaining insight into the purpose of the code may likely be through having access to informative code comments. Also, keep in mind that R errors are not always as specific as the output we see above and may appear apart from a particular line of code.
+
+Now that we know how to make comments within code and can see how they can be useful, we will continue to use them as an important and essential part of our data science coding, collaboration, and reproducibility workflow.
+
+### Variables 
+
+In a typical dataset, `variables` are often measurements or characteristics of `observations`. Observations are some unit on which measurements are taken. For example, "height" (measured in feet), and "primary language" might be recorded for people who live in Wake County, North Carolina. In this case, we would call "height" and "primary language" variables, and the different people who live in Wake County whose heights and primary languages were recorded would be the observational units that make up the observations in the dataset. Variables are usually represented by columns within a dataset, and each observation (represented by the rows) has an associated set of variable measurements, or information. 
+
+By contrast, in R a variable is an `object` that has some value or values associated with it. In the R programming context, the use of the term variable is more general. In the programming context case, for example, a variable may contain an entire dataset (and the associated rows and columns). The different uses of this term are important to note since what is meant by the term "variable" may depend on the context. 
+
+::: callout-note
+## Variables (and terminology) vary!
+We may use the term variable to refer to an object that can be referenced and has general information associated with it (the programming context), or as a column in a dataset containing information about observations (the data science context).
+:::
+
+
+### Assignment Statements
+
+Consider the general programming use of the term variable: How can we create a variable and how can we reference it? As you've already seen, the answer to this question is to store your created object into a reference via an `assignment statement`. 
+
+In R, you can use two different symbols to assign information to a variable. These are `<-` and `=`. It is also possible to make assignment statements from left to right using `->`, but R programmers tend to use `<-`, specifically. This standard left pointing arrow is what we will use as an assignment statement throughout this book.
+
+For a glimpse into the history of the R assignment statement see the resource here: [Why do we use arrow as an assignment operator?](https://colinfay.me/r-assignment/#:~:text=Historical%20reasons&text=It's%20partly%20because%20it%20was,had%20this%20sign%20for%20assignment.&text=At%20that%20time%2C%20it%20was,be%20done%20with%20another%20symbol.)
+
+## Data Dictionaries
+
+We mentioned the benefit of code comments in collaborative processes. Even before the data-focused coding process begins, a more important workflow step involves creating a `data dictionary`. Data dictionaries are to datasets as code comments are to code.
+
+Data sources may come with varying levels of background information. We can refer to this information about our data as `metadata`. This background information on a dataset is essential to the steps of an associated investigation of the data. For example, as you progress towards later stages of the course project where you will communicate insights from data, consider how you might go about this communication without knowing the data source (or generating mechanism), or the information on variable ranges, categories, or other useful descriptors. If you didn't know this information, how could you hope to communicate it to others? 
+
+For the course project and the dataset you choose, think of yourself as the data curator. Part of your responsibility in assuming this role is to create a data dictionary. The objective of creating the data dictionary is for you to be able to hand it and the dataset it describes to someone else and that person would have all the information they need to understand where the data is from, what the data contains, and what the data is about, including context, possible uses, limitations and more.
+
+::: callout-note
+## Connection to the Data Science Workflow
+
+Recall the reference to the data science workflow in the introduction. Considering the categories of this particular framework, the development of the data dictionary could be a part of many of the stages. However, more importantly than situating the data dictionary in a particular workflow stage is recognizing how important the information within the data dictionary is to all stages. Although not all data dictionaries are created equal, the ones that we will create are designed to inform and impact the entire data science workflow!
+:::
+
+### Data Dictionary Requirements
+
+Let's consider some essential components of the data dictionary that you will create for your course project. 
+
+ - **Background Information**
+   - Describe what your dataset is about (e.g., what are the observations and what's being measured and/or characterized)
+   - Identify the source of your data.
+  
+ - **General Metadata**
+   - List the dimensions of the dataset.
+   - Are there missing values? If so, explain why there are missing values and how the missing values are coded in the dataset.
+   
+ - **Variable Characteristics**
+   - List and describe the variables in your dataset. 
+   - For categorical variables, list the levels and for quantitative variables give the units of measure and the data ranges.
+   - Describe whether your data contains unique identifiers and other variable types such as character or text data and what these variables represent.
+
+ - **Other considerations**:
+   - Describe how the data was collected or generated.
+   - Describe by whom the data was collected and the purpose and intended use case (e.g., what questions were asked and what answers were sought) for the data that was collected.
+   - What are the limitations of the data, including information that may be missing from the data dictionary.
+   - Consider what additional information may be useful for others to know about the data and include this when appropriate.
+
+Given that you are not designing the data collection process, and the data you access may have prior documentation shortcomings, all of the criteria above may not be knowable or accessible. This would be an inherent limitation but still can be described in your data dictionary. In such cases you should recognize the incomplete information and think about how you could avoid such omissions in your future data curation roles.  
+
+## Describing Your Data
+
+R has many functions built in to the base version of the language. You have already seen examples, such as `read.csv()` and `paste()`, and likely have a good idea about what R functions do. Still, it can be useful to recognize that R functions tend to work and look like those you may have seen in something like a math class. Like a mathematical function, an R function takes in parameters inside parentheses (e.g., a file path) and returns specific results (e.g., a dataframe). In regard to describing our data, we can leverage R functions to make the process both more efficient and insightful.
+
+::: callout-note
+## Looking Ahead - R Functions
+Beyond the base R functions, supplemental functions often exist in R packages that can be installed. However, there is sometimes a need for `user-defined functions` which we can customize and build, ourselves, if and when needed. We will see some examples of user-defined functions in subsequent chapters.
+:::
+
+Next, let's consider an example of how we can describe our data and create & verify our data dictionary.
+
+### Example: Data Steps for Data Dictionaries
+
+The Marine6 dataset contains 815 observations of six marine species across 10 North American Regions from the years 1970 to 2020. Measures include location information (longitude, latitude, and depth) for certain species observed within a particular region, within a particular year. This dataset represents a subset of the data seen at the [EPA - Climate Change Indicators](https://www.epa.gov/climate-indicators/climate-change-indicators-marine-species-distribution) website.
+
+The paragraph above is a minimal example of the background information that should be a part of your data dictionary. To expand upon the background description and address other components of the data dictionary criteria, we will read in the Marine6 dataset and use some functions to access general metadata and information on the variables within.
+
+```{r, message=FALSE, warning=FALSE}
+# Loading in the data, using the readr package
+library(readr)
+Marine6 <- read_csv("Marine6.csv")
+```
+
+As noted above, we want to include the dimensions of the data in our data dictionary. Even if the information is given with the data, or is perhaps known from a process like viewing the data in a spreadsheet, we can use the `dim()` function to quickly figure this out and verify that the data that was read in matches the expected size. We noted above in the description that there should be 815 observations (rows) in the data. Let's confirm.
+
+```{r}
+# check the dimensions of the dataset
+dim(Marine6)
+```
+
+Confirmed! The dim() function allows us to quickly and easily see that we have 815 rows and 10 columns in our data. The 815 rows were expected, but only three measures (latitude, longitude, and depth) were mentioned in the description. So, what's up with 10 columns, then?
+
+Since we're using R - that's right you guessed it - there are many ways to inquire about this. The code below demonstrates one way that is particularly helpful.
+
+```{r}
+# What are the variables in the data named?
+colnames(Marine6)
+```
+
+Using the `colnames()` function, from the output it's now clear that six of the 10 measures were described in the background information (the three location measures, Year, Region, and Species). We can also see that along with the location measures there are associated standard errors for each, and one additional variable called "Common Name". But let's dive deeper to find out even more about the variables in the Marine6 dataset.
+
+```{r}
+# Let's get default summaries for the variable
+summary(Marine6)
+```
+
+There is a lot to take in about the output here, so let's examine what information the `summary()` function is giving us. It appears that for the variables that we might assume to be numeric, the summary function returns a "5 number summary" which includes the quartiles, a mean value and something else that says "NA's". This is the standard output of the summary function for variables that are of type numeric. The "NA's" in the output represents a count of missing values for the respective variable.
+
+Notice that for the other non-numeric variables we just get a length, and then the output "character" for the class and mode. This is the default summary function output for variables of type character, and it's not very useful in learning about the contents of the variable. However, we can fix that!
+
+The variables "Region", "Species", and "Common Name" contain classifications or categories of information. We can treat these types of varibles as `factors`. As an example of a factor variable, let's consider a variable called "Color". Let's say that in the dataset that included this color variable, each observation could be classified as "red", "blue", or "green", meaning that each observation that has a color value recorded would have a corresponding label within the ["red","blue","green"] set of colors. If we designated "Color" as a factor, then the ["red","blue","green"] set would be what we call the `levels` of this factor variable.
+
+Let's see what happens in the summary if we consider our character values as factors. In the code below, we will use the `$` operator to extract the "Region" variable from the Marine6 data and use a nested function statement to input this variable into `summary()` as a factor.
+
+```{r}
+
+# getting the summary of the variable
+# "Region" in the Marine6 dataset
+# treated as a factor
+
+summary(as.factor(Marine6$Region))
+
+```
+Aha! This output is much more useful. In particular, we can now see the levels of the "Region" variable and see that there are 10 different regions represented in the data, as described in the background information. The numbers below the region levels are the counts. We can see that there are 12 measurements for the "Gulf of Alaska" region among the other regions in the data.
+
+Before we move on, let's revisit the line of code that led to this output. We used two functions and one operator simultaneously. Recall, our mathematical functions analogy. Just as with math functions, you can use function nesting or composition with R functions. The `$` operator is the `extract` operator. So, in this code we extracted the Region variable from the data and nested the factor conversion function, `as.factor()`, within the `summary()` function to create the output of interest. What we observed in the output is what the summary function returns by default when the input is of type factor.
+
+Since the factor version of our character variables returns useful summary information, let's go ahead and update the data so that this is displayed for each of the variables that we would like to consider this way.
+
+```{r}
+
+# convert characters to factors (one.. at.. a.. time)
+Marine6$Region <- as.factor(Marine6$Region)
+Marine6$Species <- as.factor(Marine6$Species)
+Marine6$`Common Name` <- as.factor(Marine6$`Common Name`)
+```
+
+Let's see what the new summary gives us.
+
+```{r}
+# summaries of our quantitative and categorical variables
+summary(Marine6)
+```
+
+Now we can successfully talk about the information that is within the categorical variables in the data. You already knew "there are so many ways to do a thing in R," so this is only one (perhaps inefficient) way to change the Marine6 character variables to type factor. As another method, we could have initially modified the way the data was read in to automatically convert character variables to factors, or we could have even considered a fancier way (e.g., those user-defined functions we'll talk about soon). However, when there is a manageable amount of things to modify, sometimes the quickest way is a line by line method as shown.
+
+Just to be clear, in the code above, prior to the latest summary, we overwrote the character variables with their factor versions and re-saved them into themselves. Here is the translation for the line `Marine6$Region <- as.factor(Marine6$Region)`: Convert the variable "Region" in the Marine6 dataset into a factor and store it into the variable Region in the Marine6 dataset. There are many reasons why certain ways of doing may be better than others, but one takeaway for the time being is that R code runs in sequence and this has implications for code that overwrites certain objects. 
+
+::: callout-note
+## Looking Ahead
+
+The [tidyverse](https://www.tidyverse.org/) contains the `dplyr` package with data processing functions that can be leveraged to write efficient code and minimize overwriting, storage, and other coding inefficiencies that may result from solely using base R.
+:::
+
+Another useful base R data descriptive-focused function is the `str()` function which includes the data dimensions, the variable types, example values and more. Also, recall the dataset output referenced in project step one. In the same way as viewing the first few rows of data through index references, the `head()` function, with a dataset as input, can be used to help you "see what the data looks like". Adding a few example rows of data to your data dictionary can also be helpful and the head function can provide this information.
+
+You can now imagine ways to go about extracting and verifying the information for your data dictionary, which will often be a combination of researching and data descriptive-focused programming. As in the case where some information is not knowable from prior documentation, there are some components of the data dictionary criteria that may look different depending on the dataset you find. For example, it is not reasonable or necessarily helpful to list out every single level of a factor if there are too many (tens of levels or more). For instance, in the Marine6 dataset, instead of listing out every level of the "Region" variable, we might just describe this as "a variable with 10 levels representing North American bodies of water during different seasons." On the other hand, we might enumerate all six levels of the "Common Name" variable. 
+
+Note that in creating your data dictionary, the format is important. When summarizing your variables include descriptions and explanation and not just output from the summary function. Your data dictionary should tell a story about the data and is not just a replication of data summaries. As you progress in your data investigation, you can always return to your data dictionary for iterative updates, corrections, or improvements. 
+
+
+
+
