@@ -27,4 +27,9 @@ format:
     link-external-newwindow: true
   pdf:
     documentclass: scrreprt
-    code-overflow: wra
+    code-overflow: wrap
+
+jupyter: python3 
+
+editor: source
+

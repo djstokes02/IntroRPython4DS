@@ -636,4 +636,4 @@ A `DataFrame` in pandas is a 2-dimensional labeled data structure that organizes
 
 Pandas provides a comprehensive set of attributes and functions that can be used to analyze and visualize data. `Attributes` are properties of pandas objects that provide information about the object. For example, an attribute can be used to get the dimensions of a DataFrame. 
 
-Functions (also called methods) perform operations on pandas objects. We might use a function to compute the mean of the values in a numerical Series, for example. By using pandas attributes and functions, we can perform data moves to facilitate analysis and prepare data for visualization
+Functions (also called methods) perform operations on pandas objects. We might use a function to compute the mean of the values in a numerical Series, for example. By using pandas attributes and functions, we can perform data moves to facilitate analysis and prepare data for visualization!
