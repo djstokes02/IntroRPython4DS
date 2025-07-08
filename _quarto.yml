@@ -7,7 +7,6 @@ book:
   author: "David Stokes | Mahmoud Harding"
   date: ""
   chapters:
-    - _setup.qmd
     - index.qmd
     - proj1R.qmd
     - proj2R.qmd

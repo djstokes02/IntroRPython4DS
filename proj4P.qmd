@@ -4,7 +4,7 @@ Now that we're oriented with R and even have some data moves in our pocket, let'
 
 ::: callout-note
 
-##Tools for contemporary issues
+## Tools for contemporary issues
 
 As we noted in the introduction, R and Python are two of the most commonly used and preferred data science programming languages. Both languages have accessible tools and capabilities that meet the needs of data science, its evolution, and its role in **exploring contemporary issues** and **specifying exciting discoveries**. These include packages for exploratory data analysis, machine learning, visualization, and more. And, of course, the methods we emphasize allow for transparency and reproducibility, as components of a larger data science workflow and ethical framework.
 
@@ -37,7 +37,7 @@ Python is a general-purpose programming language, created by Guido van Rossum, f
 
 ::: callout-note
 
-##Recall
+## Recall
 
 Comments should be written as complete sentences and used to provide context or explain decisions that cannot be effectively communicated through other means like descriptive variable names or the structure of your code. Comments should clarify why specific coding choices were made, detail the processes used to implement those choices, and explain the underlying concepts or assumptions that support them. 
 :::
