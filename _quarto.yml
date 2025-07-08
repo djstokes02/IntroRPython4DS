@@ -24,11 +24,7 @@ csl: frontiers-in-applied-mathematics-and-statistics.csl
 format:
   html:
     theme: cosmo
+    link-external-newwindow: true
   pdf:
     documentclass: scrreprt
-    code-overflow: wrap
-
-jupyter: python3 
-
-editor: source
-
+    code-overflow: wra
