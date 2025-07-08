@@ -79,5 +79,5 @@ When you set up your R project you will create a folder on your computer and new
 ::: callout-caution
 ## The Files Window
 
-Note that the *Files* tab/window is an interface to your computer files, so modifying files through this window correspondingly modifies the files on your computer, outside of R.
+Note that the `Files` tab/window is an interface to your computer files, so modifying files through this window correspondingly modifies the files on your computer, outside of R.
 :::
