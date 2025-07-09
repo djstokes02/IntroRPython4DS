@@ -261,13 +261,13 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#dataset-requirements" id="toc-dataset-requirements" class="nav-link active" data-scroll-target="#dataset-requirements"><span class="header-section-number">1.1</span> Dataset requirements</a>
+  <li><a href="#dataset-requirements" id="toc-dataset-requirements" class="nav-link active" data-scroll-target="#dataset-requirements"><span class="header-section-number">1.1</span> Dataset Requirements</a>
   <ul class="collapse">
   <li><a href="#other-dataset-considerations" id="toc-other-dataset-considerations" class="nav-link" data-scroll-target="#other-dataset-considerations"><span class="header-section-number">1.1.1</span> Other dataset considerations</a></li>
   </ul></li>
   <li><a href="#data-types-structures" id="toc-data-types-structures" class="nav-link" data-scroll-target="#data-types-structures"><span class="header-section-number">1.2</span> Data Types &amp; Structures</a>
   <ul class="collapse">
-  <li><a href="#data-types" id="toc-data-types" class="nav-link" data-scroll-target="#data-types"><span class="header-section-number">1.2.1</span> Data Types</a></li>
+  <li><a href="#data-types" id="toc-data-types" class="nav-link" data-scroll-target="#data-types"><span class="header-section-number">1.2.1</span> Data types</a></li>
   </ul></li>
   <li><a href="#packages-libraries" id="toc-packages-libraries" class="nav-link" data-scroll-target="#packages-libraries"><span class="header-section-number">1.3</span> Packages &amp; Libraries</a></li>
   <li><a href="#importing-data" id="toc-importing-data" class="nav-link" data-scroll-target="#importing-data"><span class="header-section-number">1.4</span> Importing data</a></li>
@@ -306,12 +306,12 @@ window.Quarto = {
 </header>
 
 
-<p>Data Science investigations often involve deriving insights from existing or observational data, which differs from the process of designing an experiment, or collecting data for a specific use. Such an investigation may involve data that is publicly available and may also bound the scope of the project. In addition, relevance, interest, quality, background knowledge, and other aspects may be factors that influence the questions you want to consider and the data you would like to obtain.</p>
+<p>Data Science investigations often involve deriving insights from existing or observational data, which differs from the process of designing an experiment, or collecting data for a specific use. Such an investigation may involve data that is publicly available and may also bound the scope of a given project in terms of which questions may be answerable from those posed a priori. However, relevance, interest, quality, background knowledge, and other aspects can be key factors that influence the questions you want to consider and the data you would like to obtain.</p>
 <p>We encourage you to choose data that is relevant and of interest to you. Given that there are many ways to go about this process and each person may have their own interests, we offer some general guidelines so that your data investigation is productive and allows you to apply the programming skills and framework that you will learn.</p>
 <section id="dataset-requirements" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="dataset-requirements"><span class="header-section-number">1.1</span> Dataset requirements</h2>
-<p>When choosing your dataset of interest you should think about dataset characteristics that may allow you to pose dynamic and insightful questions, and will allow you to explore potential trends, patterns, and relationships. These considerations include the number of observations, the number of variables and the types of the variables within the data.</p>
-<p>Please note the following characteristics to guide your choice of a dataset for your project.</p>
+<h2 data-number="1.1" class="anchored" data-anchor-id="dataset-requirements"><span class="header-section-number">1.1</span> Dataset Requirements</h2>
+<p>When choosing your dataset of interest you should think about dataset characteristics that may allow you to pose dynamic and insightful questions, and will allow you to explore potential trends, patterns, and relationships. These considerations include the number of observations, the number of variables, and the types of the variables within the data.</p>
+<p>Please note the following guidelines in choosing a dataset for your project.</p>
 <p>Data accesibility is a nice feature. If everyone is able to access the data you choose they will also be able to explore and investigate the data in a potentially similar or different way.</p>
 <ul>
 <li>Choose a publicly available dataset without restrictions or special permissions.</li>
@@ -320,16 +320,16 @@ window.Quarto = {
 <ul>
 <li>Choose a dataset between 300 and 10,000 observations (rows).</li>
 </ul>
-<p>In order to consider various and common data types and to be able to compare, group, visualize and perform other data moves and transformations:</p>
+<p>In order to consider various and common data types and to be able to compare, group, visualize, and perform other data moves and transformations:</p>
 <ul>
 <li>Choose a dataset with 10 to 30 variables (columns), that includes both quantitative and categorical data types. Your chosen data may also include character or text-based data types.</li>
 </ul>
 <p>Also consider datasets with a time component, which may give you the option to investigate or observe temporal change.</p>
 <section id="other-dataset-considerations" class="level3" data-number="1.1.1">
 <h3 data-number="1.1.1" class="anchored" data-anchor-id="other-dataset-considerations"><span class="header-section-number">1.1.1</span> Other dataset considerations</h3>
-<p>Other considerations for choosing your dataset may include the format of the available data. For example, if you have a time feature in your data, this can be formatted as a column for each different measure across time (wide format), or as multiple rows per unit, representing different times (long format). Both formats can be useful depending on your project step and the corresponding goal, but such datasets may require more procedural steps than others (e.g., data wrangling).</p>
+<p>Other considerations for choosing your dataset may include the format of the available data. For example, if you have a time feature in your data, this can be formatted as a column for each different measure across time (wide format), or as multiple rows per unit, representing different times (long format). Both formats can be useful depending on your project step and the corresponding goal, but keep in mind that some datasets may require more procedural steps than others (e.g., data wrangling).</p>
 <p>You should also attempt to identify potential hurdles such as missing data. In this case, you will want to understand why some data is missing and be able to identify references that explain this occurrence. Furthermore, you should ensure that your intended data use complies with ethical guidelines. As a guide on broad considerations, designed for agencies but also applicable to individuals, (e.g., transparency, purpose specification, and others), you can reference the Fair Information Practice Principles <span class="citation" data-cites="fpc_fipps">(<a href="references.html#ref-fpc_fipps" role="doc-biblioref">1</a>)</span>.</p>
-<p>If you would like your class project to involve data from your research, make sure to adhere to the guidelines above and consult your instructor for additional requirements such as permission from your advisor and compliance with the related research guidelines.</p>
+<p>If you would like your class project to involve data from your research, make sure to adhere to the guidelines above and consult your instructor for additional requirements. This may include obtaining permission from your advisor and compliance with any related research guidelines.</p>
 <p>Once you find a dataset, you will need to be able to work with it! So, let’s explore some initial steps to get started using the R programming language through the RStudio platform.</p>
 </section>
 </section>
@@ -340,7 +340,7 @@ window.Quarto = {
 <p>So, data types are like the Voltron lions and can be combined into a data structure to create something new and functional, like the Voltron robot. As you learn more about data types and structures, consider an analogy that you can make to paint a picture of the relationship between these programming building blocks.</p>
 <p>R provides a range of data types, including numerical, categorical, logical and others. The main data structures in R are vectors, matrices, lists, and dataframes (or tibbles).</p>
 <section id="data-types" class="level3" data-number="1.2.1">
-<h3 data-number="1.2.1" class="anchored" data-anchor-id="data-types"><span class="header-section-number">1.2.1</span> Data Types</h3>
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="data-types"><span class="header-section-number">1.2.1</span> Data types</h3>
 <p><em>Numeric</em> is the default quantitative data type in R. Let’s look at some examples in the code below.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (in R, variable names are flexible but are case sensitive)</span></span>
@@ -349,7 +349,7 @@ window.Quarto = {
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>num_3 <span class="ot">&lt;-</span> .<span class="dv">07</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Num4 <span class="ot">&lt;-</span> <span class="fl">10e-3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Each of the numbers above (5, pi, .07, and 10e-3) are recognized as numeric data types. The integer, 5, and decimal value, .07, may be obvious numeric candidates, but what about <code>pi</code> and <code>10e-3</code>?</p>
+<p>Each of the numbers above (5, pi, .07, and 10e-3) are recognized as numeric data types. The integer, 5, and decimal value, .07, may be obvious candidates for a default numeric type, but what about <code>pi</code> and <code>10e-3</code>?</p>
 <p>R has certain “reserved” objects that are built into the language. <code>pi</code> is an example and is a reserved name for value 3.141593… Likewise, 10e-3 is how R represents scientific notation. This expression is equivalent to <span class="math inline">\(10*10^{-3}\)</span>. In your future R use, you might encounter certain model output that reports large or small values in this scientific notation format.</p>
 <p>There are a few additional very important components of the code above. Notice that each of the numeric data types have been associated with various names through the <span class="math inline">\(\leftarrow\)</span> symbol. The arrow pointing to the left is an <code>assignment statement</code>, which serves to store each of the numeric data types into the corresponding name. Our numbers are now objects that we can reference by name!</p>
 <div class="cell">
@@ -363,7 +363,7 @@ window.Quarto = {
 </div>
 </div>
 <p>From the executed code, you can see that calling the variables by name (or referencing them) results in their display. In general, calling an object by its name (running code that references stored information) displays its contents. Now that we know how to store and retrieve information (such as numeric data types), let’s move on to the final component of the code we’ve observed so far.</p>
-<p>Notice in both code snippets there are lines with the # symbol followed by descriptions. These are called <code>code comments</code> and are an essential part of the reproducible coding process. Within a code snippet (or code chunk) anything following the # symbol on a particular line does not execute. R treats all things that follow the # as comments, or notes, that aren’t part of the code that should be run.</p>
+<p>Notice in both code snippets there are lines with the <code>#</code> symbol followed by descriptions. These are called <code>code comments</code> and are an essential part of the reproducible coding process. Within a code snippet (or code chunk/block) anything following the <code>#</code> symbol on a particular line does not execute. R treats all things that follow the <code>#</code> as comments, or notes, that aren’t part of the code that should be run.</p>
 <p>In the first code chunk we made an explanatory comment to emphasize that R object names can be specified in different ways, but are case sensitive. Other restrictions on R object names can be found here: <a href="https://posit.cloud/learn/recipes/basics/BasicB3A">R’s Naming Rules</a>. In the second code chunk, we made comments following the executable code to specify what we should observe in the code output.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -420,7 +420,7 @@ Looking Forward
 <pre><code>[1] "7"</code></pre>
 </div>
 </div>
-<p><em>Logical</em> data types in R represent Boolean values that can be either true or false. Logicals are very useful for checking conditions and are used to construct if-then statements and subsetting data, for example.</p>
+<p><em>Logical</em> data types in R represent Boolean values that can be either true or false. Logicals are very useful for checking conditions and are used to construct if-then statements and subsetting data, as a few examples.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span> <span class="sc">==</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -436,9 +436,9 @@ Looking Forward
 </section>
 <section id="packages-libraries" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="packages-libraries"><span class="header-section-number">1.3</span> Packages &amp; Libraries</h2>
-<p>R packages contain supplements to all of the wonderful and useful default tools that exist in base R. An R package is typically built for a particular purpose and might contain customized functions, data sources, &amp; related documentation. An example is the ggplot2 R package that is built for data visualization. This package includes data visualization functions built on “geometries” and useful documentation for each function is included in the package for easy reference.</p>
-<p>R packages can be installed right through the console by using the <code>install.packages()</code> function, or more conveniently through the Install feature found within the Packages pane.</p>
-<p>Once a package is installed it is stored in a location that we call a library. The package contents can be loaded into your current R session from this storage location, sort of like checking out a book from, well, a library. You can “check out” a package and use its contents in your current R session by referencing the package name inside the <code>library()</code> function.</p>
+<p>R packages contain supplements to all of the wonderful and useful default tools that exist in base R. An R package is typically built for a particular purpose and might contain customized functions, data sources, &amp; related documentation. An example is the <code>ggplot2</code> R package that is built for data visualization. This package includes data visualization functions built on “geometries” and useful documentation for each function is included in the package for easy reference.</p>
+<p>R packages can be installed right through the console by using the <code>install.packages()</code> function, or more conveniently through the <code>Install</code> feature found within the <code>Packages</code> pane.</p>
+<p>Once a package is installed it is stored in a location that we call a <code>library</code>. The package contents can be loaded into your current R session from this storage location, sort of like checking out a book from, well, a library. You can “check out” a package and use its contents in your current R session by referencing the package name inside the <code>library()</code> function.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#  Example syntax of calling the library function</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co">#  to load the (already installed) ggplot2 package</span></span>
@@ -462,9 +462,9 @@ Looking Ahead
 </section>
 <section id="importing-data" class="level2" data-number="1.4">
 <h2 data-number="1.4" class="anchored" data-anchor-id="importing-data"><span class="header-section-number">1.4</span> Importing data</h2>
-<p>Recall, the file structure you set up for your R project. The folder associated with your project holds your course files. When your R project is open in your current RStudio session the folder contents can be seen and accessed through the Files pane. This means that your current “working directory” is your R project folder.</p>
-<p>You can also import other files into your R session that are not necessarily in your R project by referencing them through their file path - their location on your computer. So, a dataset of a particular file type can be imported using this method whether or not it’s in your current working directory.</p>
-<p>For a .csv file the base R import function is <code>read.csv()</code>. You would add the dataset filepath of interest, in quotes, inside of this function to import the data.</p>
+<p>Recall, the file structure you set up for your R project. The folder associated with your project holds your course files. When your R project is open in your current RStudio session the folder contents can be seen and accessed through the <code>Files</code> pane. This means that your current “working directory” is your R project folder.</p>
+<p>You can also import other files into your R session that are not necessarily in your R project by referencing them through their <code>file path</code> - their location on your computer. So, a dataset of a particular file type can be imported using this method whether or not it’s in your current working directory.</p>
+<p>For a <code>.csv</code> file the base R import function is <code>read.csv()</code>. You would add the dataset filepath of interest, in quotes, inside of this function to import the data.</p>
 <p>Let’s take a look at an example using the college dataset from the <a href="&quot;https://www.statlearning.com/resources-second-edition&quot;">ISL with R, 2nd Edition Resources</a>. Since we learned about packages and libraries, for this example we can load the <code>readr</code> package from our library and use a function from this resource.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Since the dataset is in my current working</span></span>
@@ -474,7 +474,7 @@ Looking Ahead
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>college <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"College.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If you’re thinking, “but wait! We’re using RStudio. There must be another way,” then you’d be right.</p>
-<p>As we mentioned before, within the Environment tab there is an “Import Dataset” feature that will allow us to search our computers file system for the dataset we wish to import, and this will generate the syntax for us with the function and file path built in.</p>
+<p>As we mentioned before, within the <code>Environment</code> tab there is an <code>Import</code> feature that will allow you to search our computers file system for the dataset we wish to import, and this will generate the syntax for you with the function and file path built in.</p>
 </section>
 <section id="data-structures" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="data-structures"><span class="header-section-number">1.5</span> Data Structures</h2>
@@ -498,7 +498,7 @@ Looking Ahead
 <pre><code>[1] 1 3 5 7 9</code></pre>
 </div>
 </div>
-<p>Note that in the above code, we “combined” our data values into a vector by using the c() function which is designed for this purpose. Wrapping our vector values in the c() function tells R to treat the group of values as a vector data structure.</p>
+<p>Note that in the above code, we “combined” our data values into a vector by using the <code>c()</code> function which is designed for this purpose. Wrapping our vector values in the <code>c()</code> function tells R to treat the group of values as a vector data structure.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

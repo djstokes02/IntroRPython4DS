@@ -28,7 +28,7 @@ Since the time of this study, RStudio has integrated Python into its platform. I
 
 So, R and Python are not only powerful and useful languages to accomplish a given data science tasks, but they are also widely used by professional practitioners. This is for good reason - both R and Python are often found to be the intuitive tool of choice. Furthermore, individuals from all fields of study and professions desiring to derive reproducible insights from data should feel confident that the tools that are within their grasp, R and Python, are industry standards.
 
-## Course outcomes
+## Course Outcomes
 
 Our goal in creating this book is to provide you with a resource to guide your R and Python programming skill acquisition through a data-centric project-based approach. A fundamental idea behind this approach involves facilitating your agency in continued data science learning and up-skilling. So, you will not only learn to program in R and Python, but you will also be able to extend your learning in a self-directed capacity with a broader data science workflow in mind.
 
@@ -40,7 +40,7 @@ This book can be used as a course preview, review, and supplement to the materia
 
 Applied data science may involve goal-oriented steps that help to move projects towards a certain or desired outcome. In the next chapter we present project development steps from this applied focus. We also include big picture considerations that can transcend a given data science project. Of course, since we are learning programming for data science through an application, we need data! But before that, we need to setup our environment in such a way that is helpful in organizing our processes and files in service of our investigation of interest.
 
-## Setting up your environment
+## Setting Up Your Environment
 
 ### Installing RStudio
 
