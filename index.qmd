@@ -15,14 +15,14 @@
 
 <hr style="margin-top: 1em;">
 
-<script>
-  // Optional: Scroll past cover page automatically
-  window.onload = () => {
-    if (window.location.hash === '') {
-      document.querySelector('hr').scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-</script>
+<!-- <script> -->
+<!--   // Optional: Scroll past cover page automatically -->
+<!--   window.onload = () => { -->
+<!--     if (window.location.hash === '') { -->
+<!--       document.querySelector('hr').scrollIntoView({ behavior: 'smooth' }); -->
+<!--     } -->
+<!--   }; -->
+<!-- </script> -->
 ```
 
 
