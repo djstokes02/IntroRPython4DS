@@ -432,23 +432,23 @@
   {
     "objectID": "appendix-a.html",
     "href": "appendix-a.html",
-    "title": "Appendix A — Appendix A - The ADAPT Model",
+    "title": "Appendix A — The ADAPT Model",
     "section": "",
     "text": "A.1 Components of the Model",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Appendix A - The ADAPT Model</span>"
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>The ADAPT Model</span>"
     ]
   },
   {
     "objectID": "appendix-a.html#components-of-the-model",
     "href": "appendix-a.html#components-of-the-model",
-    "title": "Appendix A — Appendix A - The ADAPT Model",
+    "title": "Appendix A — The ADAPT Model",
     "section": "",
     "text": "The ADAPT Model Components\n\n\n\nA.1.1 The 10 Common Learning Elements\nData Perspectives\n\nRecognizing data as information – not truth – with error, variability, and missing information,\nExplaining what it means to be a data scientist and AI expert,\nObserving a variety of data scientist role models and careers.\n\nData Practices\n\nExamining how data are created, and the related assumptions and collection practices,\nPracticing data curation, wrangling, and cleaning,\nAssessing validity of data, methods, results, and communication,\nEmploying design practices such as documenting work, considering whether broadband is required for applications, including color palettes that are visible to people who are color blind, adding captions to video and adding descriptive text to images,\nInvestigating ethical issues and ways to approach them.\n\nData Discoveries\n\nArticulating current issues or open questions in data science, and\nSpecifying exciting discoveries or impacts of data science.",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Appendix A - The ADAPT Model</span>"
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>The ADAPT Model</span>"
     ]
   }
 ]

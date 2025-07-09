@@ -231,7 +231,7 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-a.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Appendix A - The ADAPT Model</span></span></a>
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">The ADAPT Model</span></span></a>
   </div>
 </li>
       </ul>
@@ -317,13 +317,13 @@ div.csl-indent {
 <p><code>matplotlib</code> is a Python library that provides a framework for generating and customizing visualizations. It supports various plot types, including line plots, scatter plots, bar charts, histograms, and more. <code>matplotlib</code> integrates well with other libraries, such as pandas and supports various output formats, including PNG, PDF, and SVG.</p>
 <p><strong>matplotlib.pyplot</strong></p>
 <p>The primary module from <code>matplotlib</code> that we’ll use is <code>pyplot</code>. To access <code>pyplot</code> functionality, we need to import both the <code>matplotlib</code> library and the <code>pyplot</code> module.</p>
-<div id="ede96b43" class="cell" data-execution_count="1">
+<div id="26b584e4" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In the code above, we used dot notation where <code>matplotlib</code> is the library, <code>pyplot</code> is the module, and <code>plt</code> is the alias.</p>
 <p><strong>pandas</strong></p>
 <p><code>pandas</code> provides built-in plotting functionality that allows you to generate visualizations directly from Series and DataFrames. It uses <code>matplotlib.pyplot</code> for plotting through the <code>.plot()</code> method. This offers a simple way to create basic plots, which can be further customized using <code>matplotlib</code> attributes such as <code>plt.title()</code>, <code>plt.xlabel()</code>, and <code>plt.ylabel()</code>.</p>
-<div id="0831a806" class="cell" data-execution_count="2">
+<div id="9178cecb" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -333,7 +333,7 @@ div.csl-indent {
 <p>The updated Star Wars dataset comes from the webpage <a href="https://www.fabricionarcizo.com/post/starwars/">Introduction to Data Analysis Using the Star Wars Dataset by Fabricio Batista Narcizo</a>. This dataset includes information on 87 characters from the first seven episodes of the Star Wars movie saga (the Original Trilogy, the Prequel Trilogy, and The Force Awakens). The author documents the process used to update the Star Wars dataset with additional information from the <a href="https://swapi.info/">Star Wars API (SWAPI)</a>.</p>
 <p>The Star Wars dataset contains both categorical and numerical variables that describe each character. We will use this data to demonstrate data visualization in Python, specifically using the <code>matplotlib.pyplot</code> module and the <code>.plot()</code> function from <code>pandas</code>.</p>
 <p>We will import Pandas and Matplotlib, load the Star Wars dataset, review the variables within, and create related visualizations.</p>
-<div id="ca1286e5" class="cell" data-execution_count="3">
+<div id="422b94a3" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -380,7 +380,7 @@ memory usage: 17.1+ KB</code></pre>
 <section id="a-star-wars-example" class="level4" data-number="6.3.1.1">
 <h4 data-number="6.3.1.1" class="anchored" data-anchor-id="a-star-wars-example"><span class="header-section-number">6.3.1.1</span> A (Star Wars) Example</h4>
 <p>Even though Star Wars took place in a galaxy far, far away, spanning multiple planets, space stations, and star systems, many of the main characters were human or droid.</p>
-<div id="a35baf39" class="cell" data-execution_count="4">
+<div id="e20bcea6" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count and display the number of characters for each species in the dataset. </span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>starwars[<span class="st">'species'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -430,7 +430,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 <p>As seen from the output, <code>.value_counts()</code> returned the various species counts. The returned object is a <code>Series</code> with unique levels (species) as the index and the corresponding counts as values, sorted in descending order of frequency.</p>
 <p>A bar plot with all 39 species represented, would likely break the “minimize clutter” rule, eventhough all of the related information may be important. In particular representing the levels with only one representative in the chart would not necessarily be the best representation. As an alternative, we could use data moves to create a new “other” category that contains the species with fewer than a cutoff count. Or, to represent that a majority of characters come from a few specific species, we can simplify the plot by displaying only the top three frequency categories. Below, we take the second approach.</p>
-<div id="c1a67320" class="cell" data-execution_count="5">
+<div id="85a404dd" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>starwars[<span class="st">'species'</span>].value_counts()[<span class="dv">0</span>:<span class="dv">3</span>].plot(kind <span class="op">=</span> <span class="st">'bar'</span>, rot <span class="op">=</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -449,7 +449,7 @@ Name: count, dtype: int64</code></pre>
 <p>A histogram is similar to a barplot, but depicts frequencies of binned numerical values vs raw categorical counts. In a histogram, the number of bins is a parameter that impacts the shape of the visualization, as where in a bar plot the number of bars usually corresponds to the number of categorical levels (barring transformation like the filtering we did above). Another common difference between univariate barplots and histograms is that histograms can be displayed using different vertical-axis scales, such as counts, relative frequencies, or densities. When shown on a density scale, the areas of the bars sum to 1 like a probability density function. In contrast, barplots typically display frequencies or proportions for categorical variables, with no regard to bin width or area.</p>
 <p>Histograms can reveal characteristics of the data distribution, including patterns such as modality, shape, skewness, unusual observations and other features that may yield insight into the underlying properties of the variable under consideration.</p>
 <p>So now that we know about histograms, let’s create one to get a better sense of the distributions of the characters’ heights.</p>
-<div id="915e13d7" class="cell" data-execution_count="6">
+<div id="015d4537" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>starwars[<span class="st">'height'</span>].plot(kind <span class="op">=</span> <span class="st">'hist'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -460,7 +460,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 <p>The histogram captures most heights between approximately 160 and 200 centimeters. Additionally, the distribution appears to be unimodal and has a slight left skew where more extreme heights are for shorter characters.</p>
-<div id="3d1e15f1" class="cell" data-execution_count="7">
+<div id="1e0fcfa9" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># histogram w modified number of bins</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># adding edgecolor helsp distinguish bins</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -479,7 +479,7 @@ Name: count, dtype: int64</code></pre>
 <h3 data-number="6.3.3" class="anchored" data-anchor-id="boxplots"><span class="header-section-number">6.3.3</span> Boxplots</h3>
 <p>A boxplot is a visual representation of the “five number summary.” Boxplots depict the distribution of numerical data using the five values, typically represented as a rectangular box and extended lines know as whiskers. The typical five numbers (corresponding to the five number summary) are the minimum, first quartile (Q1), median (Q2), third quartile (Q3), and maximum. The box spans from Q1 to Q3 and represents the middle 50 percent of the data, with a line inside the box marking the median (Q2 value). The whiskers extend from each side of the box and may include the smallest and largest values. Some boxplots have heuristic cutoffs for the whiskers, where the minimum and maximum values are not captured within this range. Matplotlib uses the 1.5 times the interquartile range (IQR) convention for the whisker bounds, where the IQR is the distance between the first quartile (Q1) and the third quartile (Q3), when the minimum and maximum values extend beyond this range.</p>
 <p>Like histograms, boxplots can depict skewness and provide visual information about potential unusual observations or values. Boxplots are often used to assess and compare variation and measures of center across groups.</p>
-<div id="2da1fd86" class="cell" data-execution_count="8">
+<div id="45d53706" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A boxplot of heights</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co">: `vert=False` changes default display from vertical to horizontal. </span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -494,7 +494,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 <p>Like the histogram of the same variable, the boxplot above shows the distribution of the characters’ heights, but also provides information about the distributional percentiles, or more specifically the quartiles. We can see that the median (Q2) height is approximately at 180 centimeters. We can also see that 50% of the characters have heights approximately between 165 (Q1) and 190 (Q3) centimeters. We can imagine overlaying this boxplot on the histogram and seeing the connections and similar information displayed by each visual.</p>
 <p>Next, let’s consider how heights might vary across human and other nonhuman character species. For this, we can filter the data using our most frequent species classifications, Human, Droid, and Gungan. Then we can generate side-by-side boxplots for each group to gain insight into and compare the distributions of heights across these species.</p>
-<div id="d444e71a" class="cell" data-execution_count="9">
+<div id="35bfbbbb" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a list with the species to include</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>species_groups <span class="op">=</span> [<span class="st">'Human'</span>, <span class="st">'Droid'</span>, <span class="st">'Gungan'</span>]</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -519,7 +519,7 @@ Name: count, dtype: int64</code></pre>
 <h3 data-number="6.3.4" class="anchored" data-anchor-id="scatterplots"><span class="header-section-number">6.3.4</span> Scatterplots</h3>
 <p>Bivariate scatterplots depict the ordered pairs of two numerical variables of interest as points on a coordinate plane. These visualizations can be used to investigate potential relationships between two variables and can be useful in visualizing patterns such as trends, clusters, and associations. Scatterplots can also show unusual observations and are a standard tool in many model diagnostic procedures, among other uses.</p>
 <p>We can use a scatterplot to visualize the relationship between the Star Wars characters’ heights and masses.</p>
-<div id="e24b79d2" class="cell" data-execution_count="10">
+<div id="5286d013" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A scatterplot of height vs. mass</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>starwars.plot(kind <span class="op">=</span> <span class="st">'scatter'</span>, x <span class="op">=</span> <span class="st">'height'</span>, y <span class="op">=</span> <span class="st">'mass'</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -532,7 +532,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 <p>From the graph, there appears to be a linear relationship between mass and height. However, what may be an increasing trend is obscured by the horizontal access scale. This is due to the observation with an extreme mass value close to 1400 kilograms. Due to the scale distortion resulting from this single observation, we might want to examine how the picture changes if we were to exclude it.</p>
-<div id="19182cb1" class="cell" data-execution_count="11">
+<div id="ceaddc81" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the highest mass in the dataset</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>max_mass <span class="op">=</span> starwars[<span class="st">'mass'</span>].<span class="bu">max</span>()</span>
@@ -561,7 +561,7 @@ Name: count, dtype: int64</code></pre>
 <section id="line-chart-example" class="level4" data-number="6.3.5.1">
 <h4 data-number="6.3.5.1" class="anchored" data-anchor-id="line-chart-example"><span class="header-section-number">6.3.5.1</span> Line Chart Example</h4>
 <p>The Ramen Rater dataset consists of review beginning in 2002, but only has records of dates from 2010 onward. To examine how the frequency of instant noodle reviews has varied over the years we can use the <code>ratings</code> dataset (read in below). This dataset was created by extracting review numbers and corresponding dates from the Ramen Rater website. Unlike the Big List, which does not include date information, the ratings dataset enables grouping by year and allows for counting the number of reviews completed annually. This approach offers insight into how the Ramen Rater’s review activity has changed over time.</p>
-<div id="283b03fb" class="cell" data-execution_count="12">
+<div id="3fce8fa3" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the Ramen Rater review data</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>ratings <span class="op">=</span> pd.read_csv(<span class="st">"ramen_reviews.csv"</span>)</span>
