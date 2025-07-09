@@ -32,8 +32,8 @@ The complete license text is available at: http://creativecommons.org/licenses/b
 ## Questions?
 
 If you have questions about using this work under the CC BY-NC-SA license, please contact the authors at:
-- [djstokes@ncsu.edu]
-- [mhardin2@ncsu.edu]
+- djstokes@ncsu.edu
+- mhardin2@ncsu.edu
 
 ---
 

@@ -11,7 +11,6 @@ book:
       email: "mhardin2@ncsu.edu"
   date: ""
   license: "CC BY-NC-SA"
-  url: "https://datascienceacademy.ncsu.edu/courses/"
   chapters:
     - index.qmd
     - proj1R.qmd
@@ -26,7 +25,7 @@ book:
 
   appendices:
     - appendix-a.qmd
-  
+
 bibliography: references.bib
 csl: frontiers-in-applied-mathematics-and-statistics.csl
 
