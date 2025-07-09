@@ -71,7 +71,7 @@ We may use the term variable to refer to an object that can be referenced and ha
 :::
 
 
-### Assignment Statements
+### Assignment statements
 
 Consider the general programming use of the term variable: How can we create a variable and how can we reference it? As you've already seen, the answer to this question is to store your created object into a reference via an `assignment statement`. 
 
@@ -93,7 +93,7 @@ For the course project and the dataset you choose, think of yourself as the data
 Recall the reference to the data science workflow in the introduction. Considering the categories of this particular framework, the development of the data dictionary could be a part of many of the stages. However, more importantly than situating the data dictionary in a particular workflow stage is recognizing how important the information within the data dictionary is to all stages. Although not all data dictionaries are created equal, the ones that we will create are designed to inform and impact the entire data science workflow!
 :::
 
-### Data Dictionary Requirements
+### Data dictionary requirements
 
 Let's consider some essential components of the data dictionary that you will create for your course project. 
 
@@ -129,9 +129,9 @@ Beyond the base R functions, supplemental functions often exist in R packages th
 
 Next, let's consider an example of how we can describe our data and create & verify our data dictionary.
 
-### Example: Data Steps for Data Dictionaries
+### Example: Data steps for data dictionaries
 
-The Marine6 dataset contains 815 observations of six marine species across 10 North American Regions from the years 1970 to 2020. Measures include location information (longitude, latitude, and depth) for certain species observed within a particular region, within a particular year. This dataset represents a subset of the data seen at the [EPA - Climate Change Indicators](https://www.epa.gov/climate-indicators/climate-change-indicators-marine-species-distribution) website.
+The `Marine6` dataset contains 815 observations of six marine species across 10 North American Regions from the years 1970 to 2020. Measures include location information (longitude, latitude, and depth) for certain species observed within a particular region, within a particular year. This dataset represents a subset of the data seen at the [EPA - Climate Change Indicators](https://www.epa.gov/climate-indicators/climate-change-indicators-marine-species-distribution) website.
 
 The paragraph above is a minimal example of the background information that should be a part of your data dictionary. To expand upon the background description and address other components of the data dictionary criteria, we will read in the Marine6 dataset and use some functions to access general metadata and information on the variables within.
 
