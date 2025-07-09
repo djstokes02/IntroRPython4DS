@@ -4,8 +4,14 @@ project:
 
 book:
   title: "A Project-based Approach to Introductory R and Python for Data Science"
-  author: "David Stokes | Mahmoud Harding"
+  author: 
+    - name: "David J. Stokes"
+      email: "djstokes@ncsu.edu"
+    - name: "Mahmoud Harding"
+      email: "mhardin2@ncsu.edu"
   date: ""
+  license: "CC BY-NC-SA"
+  url: "https://datascienceacademy.ncsu.edu/courses/"
   chapters:
     - index.qmd
     - proj1R.qmd
@@ -17,6 +23,9 @@ book:
     - proj7R.qmd
     - proj8.qmd
     - references.qmd
+
+  appendices:
+    - appendix-a.qmd
   
 bibliography: references.bib
 csl: frontiers-in-applied-mathematics-and-statistics.csl
@@ -25,10 +34,29 @@ format:
   html:
     theme: cosmo
     link-external-newwindow: true
-    css: custom.css
+    #css: custom.css
+    #include-before-body: "cover.html"
+    include-after-body: "license-footer.html"
+
   pdf:
     documentclass: scrreprt
     code-overflow: wrap
+    include-in-header: |
+      \usepackage{afterpage}
+      \newcommand{\copyrightpage}{%
+        \thispagestyle{empty}
+        \vspace*{\fill}
+        \begin{center}
+        \textbf{\Large Copyright Notice}\\[2em]
+        Copyright \textcopyright\ 2025 First Author Name and Second Author Name\\[1em]
+        This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.\\[1em]
+        \url{http://creativecommons.org/licenses/by-nc-sa/4.0/}\\[2em]
+        For more information about this license, visit:\\
+        \url{https://creativecommons.org/licenses/by-nc-sa/4.0/}
+        \end{center}
+        \vspace*{\fill}
+        \newpage
+      }
 
 jupyter: python3 
 

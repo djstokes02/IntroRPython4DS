@@ -1,0 +1,26 @@
+# Appendix A - The ADAPT Model
+
+## Components of the Model
+
+![The ADAPT Model Components](ADAPT_model.png)
+
+### The 10 Common Learning Elements
+
+*Data Perspectives*
+
+ 1) Recognizing data as information – not truth – with error, variability, and missing information,
+ 2) Explaining what it means to be a data scientist and AI expert,
+ 3) Observing a variety of data scientist role models and careers.
+ 
+*Data Practices*
+
+ 4) Examining how data are created, and the related assumptions and collection practices,
+ 5) Practicing data curation, wrangling, and cleaning,
+ 6) Assessing validity of data, methods, results, and communication,
+ 7) Employing design practices such as documenting work, considering whether broadband is required for applications, including color palettes that are visible to people who are color blind, adding captions to video and adding descriptive text to images,
+ 8) Investigating ethical issues and ways to approach them.
+
+*Data Discoveries*
+
+ 9) Articulating current issues or open questions in data science, and
+ 10) Specifying exciting discoveries or impacts of data science.

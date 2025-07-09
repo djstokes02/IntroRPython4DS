@@ -6,7 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="David Stokes | Mahmoud Harding">
+<meta name="author" content="David J. Stokes">
+<meta name="author" content="Mahmoud Harding">
 
 <title>A Project-based Approach to Introductory R and Python for Data Science</title>
 <style>
@@ -89,7 +90,6 @@ div.csl-indent {
 }</script>
 
 
-<link rel="stylesheet" href="custom.css">
 </head>
 
 <body class="nav-sidebar floating">
@@ -186,6 +186,23 @@ div.csl-indent {
  <span class="menu-text">References</span></a>
   </div>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-a.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Appendix A - The ADAPT Model</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -227,9 +244,10 @@ div.csl-indent {
 <div class="quarto-title-meta">
 
     <div>
-    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Authors</div>
     <div class="quarto-title-meta-contents">
-             <p>David Stokes | Mahmoud Harding </p>
+             <p>David J. Stokes <a href="mailto:djstokes@ncsu.edu" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+             <p>Mahmoud Harding <a href="mailto:mhardin2@ncsu.edu" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
           </div>
   </div>
     
@@ -242,6 +260,29 @@ div.csl-indent {
 </header>
 
 
+<!-- cover page -->
+<div style="
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0.5em;
+  box-sizing: border-box;
+">
+  <img src="ADAPT_model.png" style="max-width: 90%; height: auto;">
+</div>
+
+<hr style="margin-top: 1em;">
+
+<script>
+  // Optional: Scroll past cover page automatically
+  window.onload = () => {
+    if (window.location.hash === '') {
+      document.querySelector('hr').scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+</script>
 <section id="introduction" class="level1 unnumbered">
 <h1 class="unnumbered">Introduction</h1>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -346,6 +387,15 @@ The Files Window
 </section>
 
 </main> <!-- /main -->
+<div style="text-align: center; margin-top: 1em; padding: 0.5em; border-top: 1px solid #ddd; font-size: 0.7em;">
+  <p><strong>Copyright © 2025 David J. Stokes and Mahmoud Harding</strong></p>
+  <p><strong>License:</strong> This work is licensed under a 
+  <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+  Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+  <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+  <img src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="Creative Commons License" style="border-width:0; width:55px; height:auto;">
+  </a>
+</div>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

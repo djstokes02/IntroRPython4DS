@@ -1,3 +1,32 @@
+<!-- cover page -->
+
+```{=html}
+<div style="
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0.5em;
+  box-sizing: border-box;
+">
+  <img src="ADAPT_model.png" style="max-width: 90%; height: auto;">
+</div>
+
+<hr style="margin-top: 1em;">
+
+<script>
+  // Optional: Scroll past cover page automatically
+  window.onload = () => {
+    if (window.location.hash === '') {
+      document.querySelector('hr').scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+</script>
+```
+
+
+
 # Introduction {.unnumbered}
 
 ::: callout-note
