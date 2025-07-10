@@ -19,7 +19,7 @@ A Jupyter Notebook is a web-based interactive computing platform that supports p
 
 The image below is an example of a Jupyter Notebook.
 
-![Jupyter Notebook Example](jupyter_notebook.png)
+![Jupyter Notebook Example](JupNoteEx.png)
 
 As shown in the image above, Jupyter notebooks can have a combination of markdown cells, code cells, and associated output. Jupyter notebooks have a menu and a toolbar, which provide options for managing the document, switching between code and markdown cells, and running code cells.
 
