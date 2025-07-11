@@ -46,10 +46,11 @@ R provides a range of data types, including numerical, categorical, logical and 
 
 ### Data types
 
-*Numeric* is the default quantitative data type in R. Let’s look at some examples in the code below.
+**Numeric** is the default quantitative data type in R. Let’s look at some examples in the code below.
 
 ```{r, 1.1}
 # (in R, variable names are flexible but are case sensitive)
+
 num1 <- 5 # Here I'm storing the value 5 in an object called num1
 num.2 <- pi
 num_3 <- .07
@@ -92,7 +93,7 @@ num1^2
 ```
 
 
-*Character* data includes non numeric information, such as strings or text data, and is specified in quotes.  
+**Character** data includes non numeric information, such as strings or text data, and is specified in quotes.  
 
 Let’s look at some examples.
 
@@ -103,7 +104,7 @@ charB <- "whazz upp,"
 charC <- "whazzz uppp!"
 
 
-## In R, you can pass objects to a function. 
+# In R, you can pass objects to a function. 
 # Here is an example using the paste() function, 
 # with charA, charB, and charC
 
@@ -122,7 +123,7 @@ A
 ```
 
 
-*Logical* data types in R represent Boolean values that can be either true or false. Logicals are very useful for checking conditions and are used to construct if-then statements and subsetting data, as a few examples.
+**Logical** data types in R represent Boolean values that can be either true or false. Logicals are very useful for checking conditions and are used to construct if-then statements and subsetting data, as a few examples.
 
 ```{r, 1.6}
 
@@ -169,9 +170,10 @@ For a `.csv` file the base R import function is `read.csv()`. You would add the 
 Let's take a look at an example using the college dataset from the [ISL with R, 2nd Edition Resources]("https://www.statlearning.com/resources-second-edition"). Since we learned about packages and libraries, for this example we can load the `readr` package from our library and use a function from this resource.
 
 ```{r, message=FALSE, warning=FALSE}
-## Since the dataset is in my current working
-#  directory, I only need to specify the name
-#  as the file path
+# Since the dataset is in my current working
+# directory, I only need to specify the name
+# as the file path
+
 library(readr)
 college <- read_csv("College.csv")
 
@@ -195,6 +197,7 @@ Let's explore a few vectors by first creating one ourselves.
 ```{r}
 
 # the c() function "combines" elements (separated by commas) into a vector.
+
 even_vec <- c(2,4,6,8,10)
 
 odd_vec <- even_vec - 1
@@ -232,6 +235,7 @@ Let's print out the first variable of the first observation.
 ```{r}
 
 # displays element (1,1) of the dataset.
+
 college[1,1]
 
 ```
@@ -243,6 +247,7 @@ Finally for our dataframes and tibbles, lets observe code that will demonstrate 
 ```{r}
 
 # gets rows 1 to 5, and gets columns 1 to 5
+
 college[1:5,1:5]
 
 ```

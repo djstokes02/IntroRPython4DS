@@ -20,6 +20,7 @@ The `filtering` data move is what we will use to reduce or examine a dataset bas
 
 # read in the Marine6 dataset using base R
 # convert characters to factors upon reading in
+
 Marine6 <- read.csv("Marine6.csv", stringsAsFactors = TRUE )
 
 # find the minimum value for the variable "Year"
@@ -32,8 +33,9 @@ min(Marine6$Year)
 In the code above, we read in the Marine6 data and used the `min()` function on the "Year" variable to get the earliest date. The output confirms that the earliest year recoded in the dataset was 1970. We've identified our row criteria on which we will filter the data to investigate our question of interest.
 
 ```{r}
-# filter the data set to observations of interest
+# filter the dataset to observations of interest
 # get the number of observations
+
 nrow(Marine6[Marine6$Year == 1970,])
 
 ```
@@ -44,6 +46,7 @@ Like the briefly mentioned process of creating the Marine6 dataset, in many inst
 
 ```{r}
 # Store observation from 1970 to 2000 in M6_2000
+
 M6_2000 <- Marine6[Marine6$Year <= 2000,]
 summary(M6_2000$Year) # max should be 2000
 ```
@@ -53,7 +56,8 @@ summary(M6_2000$Year) # max should be 2000
 We can use column criteria to reduce our data to only certain variables of interest. We can distinguish the `subsetting` data move from filtering based on the use of column vs. row criteria, although both operations result in what can be considered subsets of the data. 
 
 ```{r}
-# summary only of the subset of variables of interest
+# summary only of the variables subset of interest
+
 summary(Marine6[,c(1,2,8,10)])
 
 ```
@@ -68,6 +72,7 @@ In the Marine6 dataset, we have species of fish and species of not-fish. We migh
 
 ```{r}
 # Using a for loop to create a new group
+
 for(i in 1:nrow(Marine6))
 {
   if(Marine6$Common.Name[i] %in% c("American lobster","Rainbow star"))
@@ -98,7 +103,9 @@ In the previous section, we demonstrated data moves one at a time. We could have
 ```{r}
 
 # summary of a subset of variables 
-# for the observation prior to 2001 and in one region of interest
+# for the observation prior to 2001 and 
+# in one region of interest
+
 summary(Marine6[Marine6$Year <= 2000 & 
                   Marine6$Region == "Northeast US Fall", c(1,2,8,10)])
 
@@ -112,9 +119,11 @@ The [tidyverse](https://www.tidyverse.org/) that we previewed in chapter 3 conta
 
 ```{r, message=FALSE, warning=FALSE}
 # I can add two seperate statements on one line using ";"
+
 library(magrittr); library(dplyr)
 
 #example using the pipe operator
+
 Marine6 %>% summary()
 
 ```
@@ -124,6 +133,7 @@ In the code above, the `%>%` symbol is the operator of interest. The `pipe` oper
 ```{r}
 
 # What's the stadard deviation of [2,6,10]?
+
 c(2,6,10) %>% var() %>% sqrt()
 
 ```
@@ -150,6 +160,7 @@ Next, in base R, we used bracket notation and variable indices to subset our dat
 
 ```{r}
 # a summary of the selected variables
+
 Marine6 %>%
   select(Year, Region, Depth, Common.Name) %>%
   summary()
@@ -179,6 +190,7 @@ Recall the rather involved base R loop that we created for the purpose of adding
 ```{r}
 
 # function to categorize the different common names
+
 fishCat <- function(x)
 { #x is the dataset variable of interest
   ifelse(is.na(x), NA, 
@@ -187,6 +199,7 @@ fishCat <- function(x)
 }
 
 # creating a new grouping variable  
+
 Marine6 %>%
   mutate(Group = fishCat(Common.Name)) %>%
   group_by(Group) %>%

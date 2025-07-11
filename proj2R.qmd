@@ -36,7 +36,8 @@ In the midst of code, comments can be added on a different line from the code yo
 
 ```{r, comment example 2}
 
-# I'm creating a vector of important numbers called Important_Numbers.
+# I'm creating a vector of important numbers 
+# called Important_Numbers.
 
 Important_Numbers <- c("177","243","388") # characters
 # These are product identifiers 
@@ -137,6 +138,7 @@ The paragraph above is a minimal example of the background information that shou
 
 ```{r, message=FALSE, warning=FALSE}
 # Loading in the data, using the readr package
+
 library(readr)
 Marine6 <- read_csv("Marine6.csv")
 ```
@@ -145,6 +147,7 @@ As noted above, we want to include the dimensions of the data in our data dictio
 
 ```{r}
 # check the dimensions of the dataset
+
 dim(Marine6)
 ```
 
@@ -154,6 +157,7 @@ Since we're using R - that's right you guessed it - there are many ways to inqui
 
 ```{r}
 # What are the variables in the data named?
+
 colnames(Marine6)
 ```
 
@@ -161,6 +165,7 @@ Using the `colnames()` function, from the output it's now clear that six of the 
 
 ```{r}
 # Let's get default summaries for the variable
+
 summary(Marine6)
 ```
 
@@ -190,6 +195,7 @@ Since the factor version of our character variables returns useful summary infor
 ```{r}
 
 # convert characters to factors (one.. at.. a.. time)
+
 Marine6$Region <- as.factor(Marine6$Region)
 Marine6$Species <- as.factor(Marine6$Species)
 Marine6$`Common Name` <- as.factor(Marine6$`Common Name`)
@@ -199,6 +205,7 @@ Let's see what the new summary gives us.
 
 ```{r}
 # summaries of our quantitative and categorical variables
+
 summary(Marine6)
 ```
 
