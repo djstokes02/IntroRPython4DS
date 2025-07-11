@@ -300,10 +300,11 @@ Data Perspectives
 </div>
 <p>In the midst of code, comments can be added on a different line from the code you’d like to run, or on the same line of the code you’d like to run as long as the hashtag follows the executable code. Recall, everything following the hashtag is treated like a comment.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># I'm creating a vector of important numbers called Important_Numbers.</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Important_Numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"177"</span>,<span class="st">"243"</span>,<span class="st">"388"</span>) <span class="co"># characters</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># These are product identifiers </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># I'm creating a vector of important numbers </span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># called Important_Numbers.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>Important_Numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"177"</span>,<span class="st">"243"</span>,<span class="st">"388"</span>) <span class="co"># characters</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># These are product identifiers </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>A scenario (comments)</strong></p>
 <p>Imagine your collaborator gave you code to modify in order to run some basic calculations and you were tasked with summarizing the characteristics of the quantitative values - including statistical measures such as means. Since you only read this book up to chapter 1, you decided to just input the variables into the mean() function without checking any metadata, such as variable types. You proceed to run the code shown below on the <code>Important_Numbers</code> variable (that is part of a larger dataset).</p>
@@ -419,13 +420,15 @@ Looking Ahead - R Functions
 <p>The paragraph above is a minimal example of the background information that should be a part of your data dictionary. To expand upon the background description and address other components of the data dictionary criteria, we will read in the Marine6 dataset and use some functions to access general metadata and information on the variables within.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading in the data, using the readr package</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>Marine6 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Marine6.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>Marine6 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Marine6.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>As noted above, we want to include the dimensions of the data in our data dictionary. Even if the information is given with the data, or is perhaps known from a process like viewing the data in a spreadsheet, we can use the <code>dim()</code> function to quickly figure this out and verify that the data that was read in matches the expected size. We noted above in the description that there should be 815 observations (rows) in the data. Let’s confirm.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check the dimensions of the dataset</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(Marine6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(Marine6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 815  10</code></pre>
 </div>
@@ -434,7 +437,8 @@ Looking Ahead - R Functions
 <p>Since we’re using R - that’s right you guessed it - there are many ways to inquire about this. The code below demonstrates one way that is particularly helpful.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># What are the variables in the data named?</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(Marine6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(Marine6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "Year"                     "Region"                  
  [3] "Species"                  "Latitude"                
@@ -446,7 +450,8 @@ Looking Ahead - R Functions
 <p>Using the <code>colnames()</code> function, from the output it’s now clear that six of the 10 measures were described in the background information (the three location measures, Year, Region, and Species). We can also see that along with the location measures there are associated standard errors for each, and one additional variable called “Common Name”. But let’s dive deeper to find out even more about the variables in the Marine6 dataset.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's get default summaries for the variable</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Marine6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Marine6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Year         Region            Species             Latitude    
  Min.   :1970   Length:815         Length:815         Min.   :26.51  
@@ -502,14 +507,16 @@ Gulf of St. Lawrence South           Maritimes Summer
 <p>Since the factor version of our character variables returns useful summary information, let’s go ahead and update the data so that this is displayed for each of the variables that we would like to consider this way.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convert characters to factors (one.. at.. a.. time)</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>Marine6<span class="sc">$</span>Region <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(Marine6<span class="sc">$</span>Region)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>Marine6<span class="sc">$</span>Species <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(Marine6<span class="sc">$</span>Species)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>Marine6<span class="sc">$</span><span class="st">`</span><span class="at">Common Name</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(Marine6<span class="sc">$</span><span class="st">`</span><span class="at">Common Name</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>Marine6<span class="sc">$</span>Region <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(Marine6<span class="sc">$</span>Region)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>Marine6<span class="sc">$</span>Species <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(Marine6<span class="sc">$</span>Species)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>Marine6<span class="sc">$</span><span class="st">`</span><span class="at">Common Name</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(Marine6<span class="sc">$</span><span class="st">`</span><span class="at">Common Name</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s see what the new summary gives us.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summaries of our quantitative and categorical variables</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Marine6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Marine6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Year                      Region                     Species   
  Min.   :1970   Northeast US Fall  :164   Centropristis striata:180  
