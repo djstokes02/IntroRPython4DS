@@ -125,7 +125,6 @@ div.csl-indent {
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-sidebar floating">
@@ -999,49 +998,6 @@ Tuples as dictionary keys
   <img src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="Creative Commons License" style="border-width:0; width:55px; height:auto;">
   </a>
 </div>
-document.addEventListener('DOMContentLoaded', function() {
-  const images = document.querySelectorAll('.quarto-figure img');
-  
-  images.forEach(img =&gt; {
-    img.addEventListener('click', function() {
-      this.classList.toggle('zoomed');
-    });
-    
-    // Add keyboard support for accessibility
-    img.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        this.classList.toggle('zoomed');
-      }
-      if (e.key === 'Escape') {
-        this.classList.remove('zoomed');
-      }
-    });
-    
-    // Make images focusable for keyboard navigation
-    img.setAttribute('tabindex', '0');
-  });
-  
-  // Close zoom when clicking outside the image
-  document.addEventListener('click', function(e) {
-    if (!e.target.closest('.quarto-figure')) {
-      const zoomedImages = document.querySelectorAll('.quarto-figure img.zoomed');
-      zoomedImages.forEach(img =&gt; {
-        img.classList.remove('zoomed');
-      });
-    }
-  });
-  
-  // Close zoom on Escape key
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      const zoomedImages = document.querySelectorAll('.quarto-figure img.zoomed');
-      zoomedImages.forEach(img =&gt; {
-        img.classList.remove('zoomed');
-      });
-    }
-  });
-});
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

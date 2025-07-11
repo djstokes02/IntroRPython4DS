@@ -33,11 +33,9 @@ format:
   html:
     theme: cosmo
     link-external-newwindow: true
-    css: styles.css
-    #include-before-body: "cover.html"
-    include-after-body: 
-      - "license-footer.html"
-      - "image-zoom.js"
+    #css: 
+    #include-before-body: 
+    include-after-body: "license-footer.html"
 
   pdf:
     documentclass: scrreprt
