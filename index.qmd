@@ -37,7 +37,7 @@ The answer to this question might depend on who you ask! Although data science a
 
 Rather than choosing a specific definition, you can think about data science from a process perspective. The following framework developed by Lee et al. [@lee2022investigating], is an example of how your data science process may unfold for a given project.
 
-![Data Science Workflow Example](index_fig1.png)
+![Data Science Workflow Example](index_fig1.png){.no-zoom}
 
 Notice that the diagram represents the various data science processes in a non-linear way. Although the project you will pursue is structured through a sequence of milestones, it is common and often necessary to revisit prior stages of a data science workflow. For example, it may not be unusual to begin with data collection before framing a problem, and this may be driven by access to a particular data source. As explorations unfold, you might find the need to consider other angles of inquiry. On the other hand, questions of interest may drive the data collection process. 
 
