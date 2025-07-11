@@ -10,7 +10,7 @@ Erickson et al. [@erickson2019dataMoves], refer to such data transformations as 
 
 ## Data Moves in Base R
 
-Typical dataset modifications involve data moves such as filtering, subsetting, grouping, and merging. In chapter 3, we looked at the Marine6 dataset. This 815x10 dimension dataset was created through a series of data moves from a larger dataset consisting of 48,237 rows and nine columns. Creating this dataset of interest involved data exploration and data moves such as filtering, subsetting, grouping, and creating a new variables.
+Typical dataset modifications involve data moves such as filtering, subsetting, grouping, and merging. In chapter 3, we looked at the Marine6 dataset. This 815x10 dimension dataset was created through a series of data moves from a larger dataset consisting of 48,237 rows and nine columns. Creating this dataset of interest involved data exploration and data moves such as filtering, subsetting, grouping, and creating new variables.
 
 ### Filtering
 

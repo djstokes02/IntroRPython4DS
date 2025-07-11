@@ -2,7 +2,7 @@
 
 Data Science investigations often involve deriving insights from existing or observational data, which differs from the process of designing an experiment, or collecting data for a specific use. Such an investigation may involve data that is publicly available and may also bound the scope of a given project in terms of which questions may be answerable from those posed a priori. However, relevance, interest, quality, background knowledge, and other aspects can be key factors that influence the questions you want to consider and the data you would like to obtain. 
 
-We encourage you to choose data that is relevant and of interest to you. Given that there are many ways to go about this process and each person may have their own interests, we offer some general guidelines so that your data investigation is productive and allows you to apply the programming skills and framework that you will learn.
+We encourage you to choose data that is relevant and of interest to you. Given that there are many ways to go about this process and each person may have their own interests, we offer some general guidelines so that your data investigation is productive and allows you to apply the programming skills and frameworks that you will learn.
 
 ## Dataset Requirements
 
@@ -59,9 +59,9 @@ Num4 <- 10e-3
 
 Each of the numbers above (5, pi, .07, and 10e-3) are recognized as numeric data types. The integer, 5, and decimal value, .07, may be obvious candidates for a default numeric type, but what about `pi` and `10e-3`?
 
-R has certain “reserved” objects that are built into the language. `pi` is an example and is a reserved name for value 3.141593… Likewise, 10e-3 is how R represents scientific notation. This expression is equivalent to $10*10^{-3}$. In your future R use, you might encounter certain model output that reports large or small values in this scientific notation format.
+R has certain “reserved” objects that are built into the language. `pi` is an example and is a reserved name for the value 3.141593… Likewise, 10e-3 is how R represents scientific notation. This expression is equivalent to $10*10^{-3}$. In your future R use, you might encounter certain model output that reports large or small values in this scientific notation format.
 
-There are a few additional very important components of the code above. Notice that each of the numeric data types have been associated with various names through the $\leftarrow$ symbol. The arrow pointing to the left is an `assignment statement`, which serves to store each of the numeric data types into the corresponding name. Our numbers are now objects that we can reference by name! 
+There are a few additional very important components of the code above. Notice that each of the numeric data types have been associated with various names through the `<-` symbol. The arrow pointing to the left is an `assignment statement`, which serves to store each of the numeric data types into the corresponding name. Our numbers are now objects that we can reference by name! 
 
 ```{r, 1.2}
 num1 # this is the name I gave to the value 5
