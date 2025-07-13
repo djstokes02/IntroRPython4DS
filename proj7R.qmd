@@ -81,7 +81,7 @@ In our guidelines, we also talked about how graph scales are important. Although
 
 As with the hypothetical example above, although the traffic accidents data does not have what we would necessarily classify as outliers, including the accidents in Hawaii and Alaska impacts the graph in a similar, but less extreme, way. For an analysis including all states, we may have a need to display all of the related data. But let's see how things change if we restrict the data to the continental U.S.
 
-```{r, echo=FALSE}
+```{r}
 
 # Continental US subset
 Accidents_continental <- 
@@ -149,7 +149,7 @@ plot(Accidents$STATENAME,
 mtext("Number of Accidents", side = 2, line = 3, las = 0)
 ```
 
-Based on the graphical representation, we might infer that the number of accidents in states are correlated with the respective state populations, or number of drivers within a state. Although that may be an obvious starting point, we might want to see if the proportion of drivers in each state is significantly different from the proportions of drivers, perhaps with a plan to investigate why potential differences may exist. 
+Based on the graphical representation, we might infer that the number of accidents in states are correlated with the respective state populations or number of drivers within a state. Although that may be an obvious starting point, we might want to check whether the proportion of drivers relative to the state populations varies significantly across states. If so, normalizing by state populations might misrepresent actual driving exposure, and normalizing by the number of licensed drivers or something like vehicle miles traveled could be more appropriate. 
 
 For two categorical variables as inputs into the base R plot function, the graph that is generated is what is known as a `mosaic plot`. Although this can be generated in the same way as previous examples, through the base R `plot()` function, we will use more useful packages to create such a visual where we can more easily modify the labels and colors to create an informative display.
 
