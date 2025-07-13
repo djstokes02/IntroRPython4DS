@@ -149,7 +149,7 @@ plot(Accidents$STATENAME,
 mtext("Number of Accidents", side = 2, line = 3, las = 0)
 ```
 
-Based on the graphical representation, we might infer that the number of accidents in states are correlated with the respective state populations or number of drivers within a state. Although that may be an obvious starting point, we might want to check whether the proportion of drivers relative to the state populations varies significantly across states. If so, normalizing by state populations might misrepresent actual driving exposure, and normalizing by the number of licensed drivers or something like vehicle miles traveled could be more appropriate. 
+Based on the graphical representation, we might infer that the number of accidents in states are correlated with the respective state populations or number of drivers within a state. Although that may be an obvious starting point, we might want to check whether the proportion of drivers relative to the state populations varies significantly across states. If so, normalizing by state populations might misrepresent actual driving exposure, and normalizing by the number of licensed drivers or something like vehicle miles traveled could be more appropriate when comparing accidents across states. 
 
 For two categorical variables as inputs into the base R plot function, the graph that is generated is what is known as a `mosaic plot`. Although this can be generated in the same way as previous examples, through the base R `plot()` function, we will use more useful packages to create such a visual where we can more easily modify the labels and colors to create an informative display.
 
