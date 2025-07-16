@@ -3,7 +3,7 @@
 ::: callout-note
 ## Data Perspectives
 
-Data is information that reflects a particular process or observation. This information may contain imprecisions due to errors from measurement limitations, collection mishaps, and other reasons. Variability is an inherent characteristic of data and is seen in natural fluctuations across the different units on which data is collected, or through differences from sample to sample. Both error and variability in data are important to characterize throughout a data investigation and may impact decisions such as the need to collect more data and the strength attached to a particular communication, claim, or trend. In recognition of the presence or variability and error in data, even disregarding the data generation process, we should recognize *data as information, not truth*. When we add in the particular data generation process, we must recognize the potential for some biases and decisions that include certain aspects and omit others. We should recognize data has *degrees of inclusion and exclusion*.  
+Data is information that reflects a particular process or observation. This information may contain imprecisions due to errors from measurement limitations, collection mishaps, and other reasons. Variability is an inherent characteristic of data and is seen in natural fluctuations across the different units on which data is collected, or through differences from sample to sample. Both error and variability in data are important to characterize throughout a data investigation and may impact decisions such as the need to collect more data and the strength attached to a particular communication, claim, or trend. In recognition of the presence or variability and error in data, even disregarding the data generation process, we should recognize *data as information, not truth*. When we add in the particular data generation process, we must recognize the potential for some biases and decisions that include certain aspects and omit others. We should recognize data has *error, variability, and missing information*.  
 :::
 
 
@@ -46,7 +46,7 @@ Important_Numbers <- c("177","243","388") # characters
 
 **A scenario (comments)**
 
-Imagine your collaborator gave you code to modify in order to run some basic calculations and you were tasked with summarizing the characteristics of the quantitative values - including statistical measures such as means. Since you only read this book up to chapter 1, you decided to just input the variables into the mean() function without checking any metadata, such as variable types. You proceed to run the code shown below on the `Important_Numbers` variable (that is part of a larger dataset).
+Imagine your collaborator gave you code to modify in order to run some basic calculations and you were tasked with summarizing the characteristics of the quantitative values - including statistical measures such as means. Since you only read this book up to chapter 1, you decided to just input the variables into the `mean()` function without checking any metadata, such as variable types. You proceed to run the code, shown below, on the `Important_Numbers` variable (that is part of a larger dataset).
 
 ```{r}
 mean(Important_Numbers)
@@ -134,7 +134,7 @@ Next, let's consider an example of how we can describe our data and create & ver
 
 The `Marine6` dataset contains 815 observations of six marine species across 10 North American Regions from the years 1970 to 2020. Measures include location information (longitude, latitude, and depth) for certain species observed within a particular region, within a particular year. This dataset represents a subset of the data seen at the [EPA - Climate Change Indicators](https://www.epa.gov/climate-indicators/climate-change-indicators-marine-species-distribution) website.
 
-The paragraph above is a minimal example of the background information that should be a part of your data dictionary. To expand upon the background description and address other components of the data dictionary criteria, we will read in the Marine6 dataset and use some functions to access general metadata and information on the variables within.
+The paragraph above is a minimal example of the background information that should be a part of your data dictionary. To expand upon the background description and address other components of the data dictionary criteria, we will read in the `Marine6` dataset and use some functions to access general metadata and information on the variables within.
 
 ```{r, message=FALSE, warning=FALSE}
 # Loading in the data, using the readr package
@@ -151,7 +151,7 @@ As noted above, we want to include the dimensions of the data in our data dictio
 dim(Marine6)
 ```
 
-Confirmed! The dim() function allows us to quickly and easily see that we have 815 rows and 10 columns in our data. The 815 rows were expected, but only three measures (latitude, longitude, and depth) were mentioned in the description. So, what's up with 10 columns, then?
+Confirmed! The `dim()` function allows us to quickly and easily see that we have 815 rows and 10 columns in our data. The 815 rows were expected, but only three measures (latitude, longitude, and depth) were mentioned in the description. So, what's up with 10 columns, then?
 
 Since we're using R - that's right you guessed it - there are many ways to inquire about this. The code below demonstrates one way that is particularly helpful.
 
@@ -161,7 +161,7 @@ Since we're using R - that's right you guessed it - there are many ways to inqui
 colnames(Marine6)
 ```
 
-Using the `colnames()` function, from the output it's now clear that six of the 10 measures were described in the background information (the three location measures, Year, Region, and Species). We can also see that along with the location measures there are associated standard errors for each, and one additional variable called "Common Name". But let's dive deeper to find out even more about the variables in the Marine6 dataset.
+Using the `colnames()` function, from the output it's now clear that six of the 10 measures were described in the background information (the three location measures, Year, Region, and Species). We can also see that along with the location measures there are associated standard errors for each, and one additional variable called "Common Name". But let's dive deeper to find out even more about the variables in the `Marine6` dataset.
 
 ```{r}
 # Let's get default summaries for the variable
@@ -169,7 +169,7 @@ Using the `colnames()` function, from the output it's now clear that six of the 
 summary(Marine6)
 ```
 
-There is a lot to take in about the output here, so let's examine what information the `summary()` function is giving us. It appears that for the variables that we might assume to be numeric, the summary function returns a "5 number summary" which includes the quartiles, a mean value and something else that says "NA's". This is the standard output of the summary function for variables that are of type numeric. The "NA's" in the output represents a count of missing values for the respective variable.
+There is a lot to take in about the output here, so let's examine what information the `summary()` function is giving us. It appears that for the variables that we might assume to be numeric, the summary function returns a "5 number summary," which includes the quartiles & a minimum and maximum, a mean value, and something else that says "NA's". This is the standard output of the summary function for variables that are of type numeric. The "NA's" in the output represents a count of missing values for the respective variable.
 
 Notice that for the other non-numeric variables we just get a length, and then the output "character" for the class and mode. This is the default summary function output for variables of type character, and it's not very useful in learning about the contents of the variable. However, we can fix that!
 
