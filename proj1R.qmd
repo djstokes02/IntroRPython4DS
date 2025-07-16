@@ -134,7 +134,7 @@ A
 ```
 
 
-Now that we've learned about R data types, and before we learn about R data structures, let's pivot to a different topic that will allow us to bring tools into our R environment to facilitate both or data science learning and programming applications.  
+Now that we've learned about R data types, and before we learn about R data structures, let's pivot to a different topic that will allow us to bring tools into our R environment to facilitate both our data science learning and programming applications.  
 
 ## Packages & Libraries
 
@@ -182,7 +182,7 @@ college <- read_csv("College.csv")
 
 If you're thinking, "but wait! We're using RStudio. There must be another way," then you'd be right.
 
-As we mentioned before, within the `Environment` tab there is an `Import` feature that will allow you to search our computers file system for the dataset we wish to import, and this will generate the syntax for you with the function and file path built in.
+As we mentioned before, within the `Environment` tab there is an `Import` feature that will allow you to search your computers file system for the dataset you wish to import, and this will generate the syntax for you with the function and file path built in.
 
 ## Data Structures
 
