@@ -95,7 +95,7 @@ In this section, we introduced a lot of vocabulary without detailed explanation.
 
 Organization is a fundamental part of a project workflow. For our project, we can leverage the computer's folder system to efficiently and effectively store and access our course materials. Given that we are working in RStudio, we can do this by setting up an R project.
 
-An R project is a directory that can contain all of your files related to an analysis or some grouping of materials that you would want to keep together. For example, your R project might contain datasets, images, scripts, output, and other information that you access in creating a presentation. For our course, the R project we create will be used to keep track of your course materials and assignments. The R project space we will create will be your organizational space that points to what you are doing in this course.
+An R project is a directory that can contain all of your files related to an analysis or some grouping of materials that you would want to keep together. For example, your R project might contain datasets, images, scripts, output, and other information that you access in creating a presentation. For our course, the R project we create will be used to keep track of your course materials and assignments. The R project space you will create will be your organizational space that points to what you are doing in this course.
 
 When you set up your R project you will create a folder on your computer and new documents that you add to that folder will be a part of the files in your R project environment. Conversely, files that you create in your R project session will be added to your R project computer folder by default. 
 
