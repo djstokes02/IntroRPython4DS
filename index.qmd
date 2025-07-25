@@ -47,7 +47,7 @@ As we explain later, your course project will begin with a pursuit based on your
 
 So, why is this course focused on data science programming using R and Python?
 
-For one reason why R and Python are important for data science, let's consider the latest Kaggle report [State of Data Science and Machine Learning - Kaggle 2022](https://www.kaggle.com/kaggle-survey-2022) that presents results from a survey of data science industry professionals from around the world. In this presentation, both Python and R are in the top three programming languages for data scientists. Furthermore, RStudio was used approximately by one in four data scientists and Jupyter Notebooks were used by over 9 out of 10 data scientists who responded to the survey. 
+For one reason why R and Python are important for data science, let's consider the latest Kaggle report [State of Data Science and Machine Learning - Kaggle 2022](https://www.kaggle.com/kaggle-survey-2022) that presents results from a survey of data science industry professionals from around the world. In this presentation, both Python and R are in the top three programming languages for data scientists. Furthermore, RStudio was used by approximately one in four data scientists and Jupyter Notebooks were used by over 9 out of 10 data scientists who responded to the survey. 
 
 Since the time of this study, RStudio has integrated Python into its platform. In particular quarto files can contain both R and Python code, as well as other languages, and can render reports and presentations in many different common files types, such as pdfs, word documents, powerpoint, and more.
 
@@ -83,7 +83,7 @@ In the image above, there are four main windows. The upper left is the `Source` 
 
 Beneath the Source window is the `Console`. The console displays the code that is run and the results of the code that is run. You can also type code directly into the console and even save different objects to memory from this window. However, the console does not save or retain your code once you have ended your R session, as where R Scripts and other file types managed through the Source window are designed for this purpose.
 
-The window on the top right contains many tabs, including the `Environment` tab. The Environment tab provides information on the objects, or accessible elements, in your session's memory. Other tabs in the window may include the `History` tab, and perhaps a tab that interfaces with version control platforms, like GitHub.
+The window on the top right contains many tabs, including the `Environment` tab. The Environment tab provides information on the objects, or accessible elements, in your session's memory. Other tabs in this window may include the `History` tab, and perhaps a tab that interfaces with version control platforms, like GitHub.
 
 The final window, in the bottom right, also contains many tabs. The `Files` tab provides information about your current working directory and the files that exist within that working directory. The `Plots` tab can display features such as graphs generated from code, like a scatterplot or boxplot. In the image above, the information displayed in the bottom right window is from a call to the `Help` feature which has been done through the line of code that reads "?rbinom". The contents of the help search will appear under the Help tab when selected.
 
@@ -95,7 +95,7 @@ In this section, we introduced a lot of vocabulary without detailed explanation.
 
 Organization is a fundamental part of a project workflow. For our project, we can leverage the computer's folder system to efficiently and effectively store and access our course materials. Given that we are working in RStudio, we can do this by setting up an R project.
 
-An R project is a directory that can contain all of your files related to an analysis or some grouping of materials that you would want to keep together. For example, your R project might contain datasets, images, scripts, output, and other information that you access in creating a presentation. For our course, the R project we create will be used to keep track of your course materials and assignments. The R project space you will create will be your organizational space that points to what you are doing in this course.
+An R project is a directory that can contain all of your files related to an analysis or some grouping of materials that you would want to keep together. For example, your R project might contain datasets, images, scripts, output, and other information that you access in creating a presentation. For our course, the R project you create will be used to keep track of your course materials and assignments. The R project space you will create will be your organizational space that points to what you are doing in this course.
 
 When you set up your R project you will create a folder on your computer and new documents that you add to that folder will be a part of the files in your R project environment. Conversely, files that you create in your R project session will be added to your R project computer folder by default. 
 
