@@ -167,7 +167,7 @@ You can also import other files into your R session that are not necessarily in 
 
 For a `.csv` file the base R import function is `read.csv()`. You would add the dataset filepath of interest, in quotes, inside of this function to import the data. 
 
-Let's take a look at an example using the college dataset from the [ISL with R, 2nd Edition Resources]("https://www.statlearning.com/resources-second-edition"). Since we learned about packages and libraries, for this example we can load the `readr` package from our library and use a function from this resource.
+Let's take a look at an example using the college dataset from the [ISL with R, 2nd Edition Resources](https://www.statlearning.com/resources-second-edition). Since we learned about packages and libraries, for this example we can load the `readr` package from our library and use a function from this resource.
 
 ```{r, message=FALSE, warning=FALSE}
 # Since the dataset is in my current working

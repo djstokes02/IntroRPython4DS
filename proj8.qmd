@@ -8,7 +8,7 @@ To accomplish this final milestone, let's consider a few guidelines, criteria, a
 
 The bullet points below are the guidelines for your presentation. These considerations can be used beyond this project, more generally, as big picture concepts and explanatory needs for building and communicating a data investigation. 
 
- - Describe your data 
+ - Describe your data. 
  
 The data description should include important contextual and background information. This is essentially a summary of your data dictionary.
 
@@ -16,7 +16,7 @@ The data description should include important contextual and background informat
  
 Although many data investigations aren't necessarily interest driven, making data connections through interest and relevance can be a powerful tool to boost, motivate and/or facilitate understanding. In some cases, identifying interests in the data or using interests to drive a data investigation can allow you to access your prior knowledge and experience. Or, perhaps you chose the data because you were interested in investigating something new.
 
-  - Explain your data investigation or research question of interest?
+  - Explain your data investigation or research question of interest.
 
 During this step, you should describe any hypotheses you generated or expectations that you may have had going into the investigations. Relatedly, you should describe your dataset characteristics in terms of your data investigation. This step might be different from your previous data descriptions in that you might desrcibe a subset of your data in terms of the hypotheses and questions you seek to investigate. Here, you might include more information about the meaning and measures of certain variables. Additionally, you may have visualizations or tables that help you describe aspects of the data relevant to your investigation.
 
@@ -30,7 +30,7 @@ For this step, describe what your analysis was and why you chose such a method. 
 
  - Explain what you found.
 
-In communicating your findings, you should provide a contextual explanation. Or, if your data investigation and the related analysis methods were exploratory, you might describe the insight you found that require further investigation, perhaps including suggestions for additional needs and lines of inquiry. These might include recommendations for additional measures and sources that would allow for answering the related questions. 
+In communicating your findings, you should provide a contextual explanation. Or, if your data investigation and the related analysis methods were exploratory, you might describe the insights you found that require further investigation, perhaps including suggestions for additional needs and lines of inquiry. These might include recommendations for additional measures and sources that would allow for answering the related questions. 
 
 The need for extra information is also related to the limitations of your data. There may be limitations to the generalizability of your findings and the conclusions that can be garnered. For example, a visual trend might be a strong suggestion for a particular relationship, but the strength of the relationship and related statements you might want to make could be further supported by formal statistical modeling, analysis, and related diagnostics.  
 
